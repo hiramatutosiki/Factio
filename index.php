@@ -9,6 +9,13 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 
     <title>Factio</title>
+    <style>
+        .bg-img{
+            background-image:url(img/rei.jpg);
+            background-size:cover;
+            background-position:center 60%;
+        }
+    </style>
 </head>
 
 <body>
@@ -16,12 +23,18 @@
     require_once(__DIR__ . '/header.php');
     ?>
     <!-- ジャンボトロン -->
+    <div class ="bg-img p-5">
+        <div class="container">
+            <img src="img/rei.jpg"class="img-fluid">
+        </div>      
+    </div>
 
     <div class="container-fluid">
         <!-- 見出し：おすすめ -->
         <div class="row my-5">
             <div class="col-6 offset-3">
-                <h1 class="text-center"></h1>
+                <h1 class="text-center h1">TOPICS</h1>
+                <p class="text-center">＼＼スタッフのおすすめ／／</p>
             </div>
         </div>
 
@@ -30,40 +43,40 @@
 
             <div class="col" style="max-width: 300px;">
                 <div class="card h-100">
-                    <img src="image/main.jpg" class="card-img-top" alt="">
-                    <div class="card-body">
-                        <h3 class="card-title">title</h3>
-                        <p class="card-text">1000円</p>
+                    <img src="img/janbotoron.jpg" class="card-img-top" alt="">
+                    <div class="card-body" >
+                        <h3 class="card-title text-center">商品タイトル</h3>
+                        <p class="card-text text-center">1,000円</p>
                     </div>
                 </div>
             </div>
 
             <div class="col" style="max-width: 300px;">
                 <div class="card h-100">
-                    <img src="image/main.jpg" class="card-img-top" alt="">
+                    <img src="img/janbotoron.jpg" class="card-img-top " alt="">
                     <div class="card-body">
-                        <h3 class="card-title">title</h3>
-                        <p class="card-text">1000円</p>
+                        <h3 class="card-title text-center">商品タイトル</h3>
+                        <p class="card-text text-center">1,000円</p>
                     </div>
                 </div>
             </div>
 
             <div class="col" style="max-width: 300px;">
                 <div class="card h-100">
-                    <img src="image/main.jpg" class="card-img-top" alt="">
+                    <img src="img/janbotoron.jpg" class="card-img-top " alt="">
                     <div class="card-body">
-                        <h3 class="card-title">title</h3>
-                        <p class="card-text">1000円</p>
+                        <h3 class="card-title text-center">商品タイトル</h3>
+                        <p class="card-text text-center">1,000円</p>
                     </div>
                 </div>
             </div>
 
             <div class="col" style="max-width: 300px;">
                 <div class="card h-100">
-                    <img src="image/main.jpg" class="card-img-top" alt="">
+                    <img src="img/janbotoron.jpg" class="card-img-top" alt="">
                     <div class="card-body">
-                        <h3 class="card-title">title</h3>
-                        <p class="card-text">1000円</p>
+                        <h3 class="card-title text-center">商品タイトル</h3>
+                        <p class="card-text text-center">1,000円</p>
                     </div>
                 </div>
             </div>
