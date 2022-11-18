@@ -43,7 +43,7 @@
 
             <div class="col" style="">
                 <div class="card ">
-                    <img src="img/セット3サンプル.jpg" class="card-img-top img-fluid" alt="">
+                    <img src="img/サンプル.jpg" class="card-img-top img-fluid" alt="">
                     <div class="card-body" >
                         <h3 class="card-title text-center">商品タイトル</h3>
                         <p class="card-text text-center h6">1,000円</p>
