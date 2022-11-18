@@ -29,7 +29,7 @@
         </div>      
     </div>
 
-    <div class="container-fluid">
+    <div class="container-fluid w-75">
         <!-- 見出し：おすすめ -->
         <div class="row my-5">
             <div class="col-9 offset-0">
@@ -42,8 +42,8 @@
         <div class="row row-cols-2 row-cols-sm-2 row-cols-lg-4 g-3 mx-auto">
 
             <div class="col" style="">
-                <div class="card">
-                    <img src="img/janbotoron.jpg" class="card-img-top img-fluid" alt="">
+                <div class="card ">
+                    <img src="img/セット3サンプル.jpg" class="card-img-top img-fluid" alt="">
                     <div class="card-body" >
                         <h3 class="card-title text-center">商品タイトル</h3>
                         <p class="card-text text-center h6">1,000円</p>
@@ -53,7 +53,7 @@
 
             <div class="col" style="">
                 <div class="card ">
-                    <img src="img/セット3.png" class="card-img-top img-fluid " alt="">
+                    <img src="img/セット1サンプル.png" class="card-img-top img-fluid " alt="">
                     <div class="card-body">
                         <h3 class="card-title text-center">商品タイトル</h3>
                         <p class="card-text text-center h6">1,000円</p>
@@ -63,7 +63,7 @@
 
             <div class="col" style="">
                 <div class="card ">
-                    <img src="img/セット1.jpg" class="card-img-top img-fluid" alt="">
+                    <img src="img/セット1サンプル.jpg" class="card-img-top img-fluid" alt="">
                     <div class="card-body">
                         <h3 class="card-title text-center">商品タイトル</h3>
                         <p class="card-text text-center h6">1,000円</p>
@@ -73,7 +73,17 @@
 
             <div class="col" style="">
                 <div class="card ">
-                    <img src="img/セット1.png" class="card-img-top img-fluid  " alt="">
+                    <img src="img/セット1サンプル.png" class="card-img-top img-fluid  " alt="">
+                    <div class="card-body">
+                        <h3 class="card-title text-center">商品タイトル</h3>
+                        <p class="card-text text-center h6">1,000円</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col" style="">
+                <div class="card ">
+                    <img src="img/セット1サンプル.png" class="card-img-top img-fluid  " alt="">
                     <div class="card-body">
                         <h3 class="card-title text-center">商品タイトル</h3>
                         <p class="card-text text-center h6">1,000円</p>
