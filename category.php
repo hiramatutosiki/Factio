@@ -69,9 +69,18 @@
                 </div>
             </div>
             
-        
+            <div class="col" style="">
+                <div class="card ">
+                    <img src="img/サンプル4.png" class="card-img-top img-fluid  " alt="">
+                    <div class="card-body">
+                        <h3 class="card-title text-center">商品タイトル</h3>
+                        <p class="card-text text-center h6">1,000円</p>
+                    </div>
+                </div>
+            </div>
+
      </div>
-     <div class="d-grid gap-3 col-2 mx-auto my-5">
+     <div class="d-grid gap-3 col-3 mx-auto my-5">
             <button class="btn btn-lg" type="button" style="background-color: #FFFFFF; border-color: #ED6565; color: #ED6565" onclick="location.href='index.php'">Top</button>
         </div>
  </div>
