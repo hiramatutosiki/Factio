@@ -77,7 +77,20 @@
         </div>
     </div>
 
+    <div class="col" style="">
+        <div class="card ">
+        <img src="img/サンプルセット4.jpg" class="card-img-top img-fluid  " alt="">
+            <div class="card-body">
+                <h3 class="card-title text-center">商品タイトル</h3>
+                <p class="card-text text-center h6">1,000円</p>
+            </div>
+        </div>
+    </div>
+
      </div>
+     <div class="d-grid gap-3 col-2 mx-auto my-5">
+            <button class="btn btn-lg" type="button" style="background-color: #FFFFFF; border-color: #ED6565; color: #ED6565" onclick="location.href='index.php'">Top</button>
+        </div>
  </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 </body>
