@@ -49,7 +49,6 @@
             </div>
        
     
-
             <div class="col" style="">
                 <div class="card ">
                  <img src="img/サンプル3.jpg" class="card-img-top img-fluid  " alt="">
