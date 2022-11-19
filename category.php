@@ -16,53 +16,63 @@
     require_once(__DIR__ . '/header.php');
     ?>
 
-    <div class="container-fluid">
+    <div class="container-fluid w-75">
         <!-- 見出し -->
         <div class="row my-5">
-            <div class="col-6 offset-3">
-                <h1 class="text-center">Category</h1>
+            <div class="col-9 offset-0">
+                <h2 class="text-left">カテゴリ　クリスマス</h2>
             </div>
         </div>
 
         <!-- 商品一覧 -->
         <div class="row row-cols-2 row-cols-sm-3 row-cols-lg-4 g-4 mx-auto">
-
-            <div class="col" style="max-width: 300px;">
-                <div class="card h-100">
-                    <img src="img/セット名_detail2" class="card-img-top" alt="">
-                    <div class="card-body">
-                        <h3 class="card-title">title</h3>
-                        <p class="card-text">1000円</p>
+        
+        <div class="col" style="">
+                <div class="card">
+                    <img src="img/サンプルセット2.png" class="card-img-top img-fluid" alt="">
+                    <div class="card-body" >
+                        <h3 class="card-title text-center">商品タイトル</h3>
+                        <p class="card-text text-center h6">1,000円</p>
                     </div>
                 </div>
             </div>
 
-            <div class="col" style="max-width: 300px;">
-                <div class="card h-100">
-                    <img src="image/main.jpg" class="card-img-top" alt="">
+            <div class="col" style="">
+                <div class="card ">
+                    <img src="img/サンプルセット3.jpg" class="card-img-top img-fluid " alt="">
                     <div class="card-body">
-                        <h3 class="card-title">title</h3>
-                        <p class="card-text">1000円</p>
+                        <h3 class="card-title text-center">商品タイトル</h3>
+                        <p class="card-text text-center h6">1,000円</p>
                     </div>
                 </div>
             </div>
 
-            <div class="col" style="max-width: 300px;">
-                <div class="card h-100">
-                    <img src="image/main.jpg" class="card-img-top" alt="">
+            <div class="col" style="">
+                <div class="card ">
+                    <img src="img/サンプルセット1.jpg" class="card-img-top img-fluid" alt="">
                     <div class="card-body">
-                        <h3 class="card-title">title</h3>
-                        <p class="card-text">1000円</p>
+                        <h3 class="card-title text-center">商品タイトル</h3>
+                        <p class="card-text text-center h6">1,000円</p>
                     </div>
                 </div>
             </div>
 
-            <div class="col" style="max-width: 300px;">
-                <div class="card h-100">
-                    <img src="image/main.jpg" class="card-img-top" alt="">
+            <div class="col" style="">
+                <div class="card ">
+                    <img src="img/サンプルセット4.png" class="card-img-top img-fluid  " alt="">
                     <div class="card-body">
-                        <h3 class="card-title">title</h3>
-                        <p class="card-text">1000円</p>
+                        <h3 class="card-title text-center">商品タイトル</h3>
+                        <p class="card-text text-center h6">1,000円</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col" style="">
+                <div class="card ">
+                    <img src="img/サンプルセット4.png" class="card-img-top img-fluid  " alt="">
+                    <div class="card-body">
+                        <h3 class="card-title text-center">商品タイトル</h3>
+                        <p class="card-text text-center h6">1,000円</p>
                     </div>
                 </div>
             </div>
