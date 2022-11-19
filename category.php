@@ -19,8 +19,8 @@
     <div class="container-fluid w-75">
         <!-- 見出し -->
         <div class="row my-5">
-            <div class="col-6 offset-3">
-                <h1 class="text-center">Category</h1>
+            <div class="col-9 offset-0">
+                <h2 class="text-left">カテゴリ　クリスマス</h2>
             </div>
         </div>
 
@@ -29,7 +29,7 @@
 
     <div class="col" style="">
         <div class="card ">
-            <img src="img/サンプル.jpg" class="card-img-top img-fluid" alt="">
+            <img src="img/サンプルセット2.jpg" class="card-img-top img-fluid" alt="">
             <div class="card-body" >
                 <h3 class="card-title text-center">商品タイトル</h3>
                 <p class="card-text text-center h6">1,000円</p>
@@ -69,7 +69,7 @@
 
     <div class="col" style="">
         <div class="card ">
-        <img src="img/サンプルセット4.png" class="card-img-top img-fluid  " alt="">
+        <img src="img/サンプルセット4.jpg" class="card-img-top img-fluid  " alt="">
             <div class="card-body">
                 <h3 class="card-title text-center">商品タイトル</h3>
                 <p class="card-text text-center h6">1,000円</p>
