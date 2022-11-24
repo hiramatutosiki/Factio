@@ -31,7 +31,7 @@
             <div class="row my-3">
                 <div class="col-6 offset-3">
                     <label for="txt1" class="form-label">メールアドレス</label>
-                    <input type="text" class="form-control" id="txt1" placeholder="name@example.com">
+                    <input type="text" class="form-control" id="txt1" placeholder="name@example.com" name ="mail">
                 </div>
             </div>
 
@@ -39,7 +39,7 @@
             <div class="row my-3">
                 <div class="col-6 offset-3">
                     <label for="txt1" class="form-label">パスワード</label>
-                    <input type="password" class="form-control" id="txt1" placeholder="">
+                    <input type="password" class="form-control" id="txt1" placeholder="" name ="pass">
                 </div>
             </div>
 
