@@ -14,16 +14,8 @@
 <body>
     <!-- ヘッダー読み込み -->
     <?php
-    require_once('login.php');
-    header('login.php')
+    require_once('header_login.php');
     ?>
-
-    <!-- リンク：Factio -->
-    <div class="row my-3 text-left">
-            <div class="col-6 offset-1">
-                <a class="navbar-brand ms-5" href="index.php" style="font-size: 1.5em">Factio</a>
-            </div>
-        </div>
 
     <div class="container-fluid">
         <!-- 見出し：ログイン -->
@@ -39,7 +31,7 @@
             <div class="row my-3">
                 <div class="col-6 offset-3">
                     <label for="txt1" class="form-label">メールアドレス</label>
-                    <input type="text" class="form-control" id="txt1" placeholder="name@example.com">
+                    <input type="text" class="form-control" id="txt1" placeholder="name@example.com" name="mail">
                 </div>
             </div>
 
@@ -47,7 +39,7 @@
             <div class="row my-3">
                 <div class="col-6 offset-3">
                     <label for="txt1" class="form-label">パスワード</label>
-                    <input type="password" class="form-control" id="txt1" placeholder="">
+                    <input type="password" class="form-control" id="txt1" placeholder="" name="pass">
                 </div>
             </div>
 
