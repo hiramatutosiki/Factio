@@ -14,7 +14,7 @@
 <body>
     <!-- ヘッダー読み込み -->
     <?php
-    require_once('header_login.php');
+    require_once('header.php');
     ?>
 
     <div class="container-fluid">
@@ -52,7 +52,7 @@
         <!-- リンク：新規登録 -->
         <div class="row my-3 text-center">
             <div class="col-6 offset-3">
-                <a href="register.php">新規登録はこちら</a>
+                <a href="login2.php">新規登録はこちら</a>
             </div>
         </div>
 
