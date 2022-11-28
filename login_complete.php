@@ -1,4 +1,4 @@
-<!DOCKTYPE HTML>
+<!DOCTYPE HTML>
 <html>
 <head>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
@@ -75,6 +75,17 @@
       <h2>新規会員登録</h2>
       <h3 style="margin-top: 50px;">アカウント登録完了しました</h3>
     </div>
+    <?php
+    $mail =$_POST['mail'];
+    $pass =$_POST['pass'];
+    $name =$_POST['name'];
+    $post =$_POST['post'];
+    $pro =$_POST['pre'];
+    $city =$_POST['city'];
+    require "loginManager.php";
+    $dbnm = new Mesod();
+    $res =$dbnm->getuserID($mail,$pass,$name,$post,$pro,$city);
+    ?>
     <div class="container">
         <div class="row">
             <div class="col-12 pp">
