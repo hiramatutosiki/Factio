@@ -1,3 +1,4 @@
+
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -71,6 +72,7 @@
             <div class="col-12">
               <label for="email" class="form-label">メールアドレス</label>
               <input type="text" class="form-control required email" id="email" autocomplete="new-password" size="30" name="mail">
+
             </div>
             <div class="col-12">
               <label for="pass" class="form-label">パスワード</label>
@@ -99,7 +101,7 @@
                 <input type="text" class="form-control" id="address" placeholder="" required="" name="city">
                 </div>
                 <div class="col-12 ppp">
-                    <button class="btn btn-danger btn-lg" onclick="location.href='login_confirm.php'", style="margin-top: 40px;" type="submit">入力確認</button>
+                    <button class="btn btn-danger btn-lg" onclick="location.href='login_confirm.php'" style="margin-top: 40px;" type="submit">入力確認</button>
                 </div>
                 <div class="col-12 ppp">
                     <button class="btn btn-outline-danger btn-lg rounded" onclick="location.href='index.php'" style="margin-top: 40px;" type="submit">Top</button>

@@ -89,7 +89,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12 pp">
-                <button class="btn btn-outline-danger btn-lg pp" style="margin-top: 40px;" type="submit">Top</button>
+                <button class="btn btn-outline-danger btn-lg pp" style="margin-top: 40px;" onclick="location.href='index.php'" type="submit">Top</button>
             </div>
         </div>
     </div>

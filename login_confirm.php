@@ -1,4 +1,4 @@
-<!DOCKTYPE HTML>
+<!DOCTYPE HTML>
 <html>
 <head>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
@@ -90,6 +90,15 @@
     <div class="row">
       <div class="col-6">
         <p class="ppp">メールアドレス</p>
+          <?php
+            require 'loginmanager.php';
+            $dbnn = new mesod();
+            $searc =$dbnn->count($_POST['mail']);
+            if(count($searc)>1){
+              echo "このメールアドレスは既に使用されています";
+              
+            }
+          ?>
       </div>
       <div class="col-6">
         <?php echo $_POST['mail'];?>
