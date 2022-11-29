@@ -17,6 +17,7 @@
     ?>
 
     <div class="container-fluid w-75">
+<<<<<<< HEAD
    
         <!-- 見出し -->
         <div class="row my-5">
@@ -82,6 +83,13 @@
      </div>
      <div class="d-grid gap-3 col-3 mx-auto my-5">
             <button class="btn btn-lg" type="button" style="background-color: #FFFFFF; border-color: #ED6565; color: #ED6565" onclick="location.href='index.php'">Top</button>
+=======
+        <?php
+        require_once 'DBManager.php';
+        $dbmng = new DBManager();
+        $dbmng->getItemByCategory($_POST['category']);
+        ?>
+>>>>>>> main
         </div>
  </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
