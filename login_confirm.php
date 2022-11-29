@@ -53,6 +53,7 @@
           font-size: 90%;
           color: red;
           box-sizing: border-box;
+          
         }
         .btn{
             width: 300px;

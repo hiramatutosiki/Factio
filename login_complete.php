@@ -44,6 +44,7 @@
         }
         .Form{
             text-align : center;
+            
         }
         /* エラーメッセージのスタイル */
         .error {
