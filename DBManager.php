@@ -76,5 +76,6 @@ class DBManager
 			$ps->bindValue(6,$city,PDO::PARAM_STR);
 			$ps->bindValue(7,$day,PDO::PARAM_STR);
 			$ps->execute();
+			
 		}
 }
