@@ -17,11 +17,13 @@
                         Category
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">誕生日</a></li>
-                        <li><a class="dropdown-item" href="#">ハロウィン</a></li>
-                        <li><a class="dropdown-item" href="#">クリスマス</a></li>
-                        <li><a class="dropdown-item" href="#">年末年始</a></li>
-                        <li><a class="dropdown-item" href="#">小物</a></li>
+                        <form action="category.php" method="post">
+                            <li><button type="submit" class="dropdown-item" name="category" value="誕生日">誕生日</li>
+                            <li><button type="submit" class="dropdown-item" name="category" value="ハロウィン">ハロウィン</a></li>
+                            <li><button type="submit" class="dropdown-item" name="category" value="クリスマス">クリスマス</a></li>
+                            <li><button type="submit" class="dropdown-item" name="category" value="年末年始">年末年始</a></li>
+                            <li><button type="submit" class="dropdown-item" name="category" value="小物">小物</a></li>
+                        </form>
                     </ul>
                 </li>
 

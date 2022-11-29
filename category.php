@@ -17,66 +17,34 @@
     ?>
 
     <div class="container-fluid w-75">
-        <!-- 見出し -->
-        <div class="row my-5">
-            <div class="col-9 offset-0">
-                <h2 class="text-left">カテゴリ　クリスマス</h2>
-            </div>
-        </div>
-
-        <!-- 商品一覧 -->
-        <div class="row row-cols-2 row-cols-sm-3 row-cols-lg-4 g-4 mx-auto">
-        
-        <div class="col" style="">
-                <div class="card">
-                    <img src="img/サンプルセット2.png" class="card-img-top img-fluid" alt="">
-                    <div class="card-body" >
-                        <h3 class="card-title text-center">商品タイトル</h3>
-                        <p class="card-text text-center h6">1,000円</p>
-                    </div>
+        <?php
+        require_once 'DBManager.php';
+        $dbmng = new DBManager();
+        $result = $dbmng->getRecommendItem($_POST['category']);
+        $count = count($result);
+        echo "<div class=\"row my-5\">
+                <div class=\"col-9 offset-0\">
+                    <h2 class=\"text-left\">カテゴリ $_POST[category]</h2>
                 </div>
-            </div>
+             </div>";
+        echo "<h3>ヒット件数:{$count}件</h1>
+              <div class=\"row row-cols-2 row-cols-sm-2 row-cols-lg-4 g-3 mx-auto\">";
 
-            <div class="col" style="">
-                <div class="card ">
-                    <img src="img/サンプルセット3.jpg" class="card-img-top img-fluid " alt="">
-                    <div class="card-body">
-                        <h3 class="card-title text-center">商品タイトル</h3>
-                        <p class="card-text text-center h6">1,000円</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col" style="">
-                <div class="card ">
-                    <img src="img/サンプルセット1.jpg" class="card-img-top img-fluid" alt="">
-                    <div class="card-body">
-                        <h3 class="card-title text-center">商品タイトル</h3>
-                        <p class="card-text text-center h6">1,000円</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col" style="">
-                <div class="card ">
-                    <img src="img/サンプルセット4.png" class="card-img-top img-fluid  " alt="">
-                    <div class="card-body">
-                        <h3 class="card-title text-center">商品タイトル</h3>
-                        <p class="card-text text-center h6">1,000円</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col" style="">
-                <div class="card ">
-                    <img src="img/サンプルセット4.png" class="card-img-top img-fluid  " alt="">
-                    <div class="card-body">
-                        <h3 class="card-title text-center">商品タイトル</h3>
-                        <p class="card-text text-center h6">1,000円</p>
-                    </div>
-                </div>
-            </div>
-
+        foreach ($result as $row) {
+            echo "<div class=\"col\">
+                    <form action=\"item_detail.php\" method=\"post\">
+                    <button type=\"submit\" class=\"btn btn-link\" name=\"id\" value=\"$row[item_id]\" style=\"text-decoration: none; color: black\">
+                        <div class=\"card\">
+                            <img src=\"img/$row[item_mainimage]\" class=\"card-img-top img-fluid\" alt=\"$row[item_name]\">
+                            <div class=\"card-body\" >
+                                <h3 class=\"card-title text-center\">$row[item_name]</h3>
+                                <p class=\"card-text text-center h6\">$row[item_price]円</p>
+                            </div>
+                        </div>
+                    </form>
+                </div>";
+        }
+        ?>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>

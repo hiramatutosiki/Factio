@@ -45,7 +45,7 @@
 
             <!-- ボタン：ログイン -->
             <div class="d-grid gap-3 col-2 mx-auto my-5">
-                <button class="btn btn-lg" type="submit" style="background-color: #ED6565; color: #FFFFFF">ログイン</button>
+                <button class="btn btn-lg text-nowrap" type="submit" style="background-color: #ED6565; color: #FFFFFF">ログイン</button>
             </div>
         </form>
 
@@ -58,7 +58,7 @@
 
         <!-- ボタン：Top -->
         <div class="d-grid gap-3 col-2 mx-auto my-5">
-            <button class="btn btn-lg" type="button" style="background-color: #FFFFFF; border-color: #ED6565; color: #ED6565" onclick="location.href='index.php'">Top</button>
+            <button class="btn btn-lg text-nowrap" type="button" style="background-color: #FFFFFF; border-color: #ED6565; color: #ED6565" onclick="location.href='index.php'">Top</button>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>

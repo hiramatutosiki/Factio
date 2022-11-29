@@ -75,9 +75,20 @@
             </div>
         </div>
 
+        <!-- 年齢 -->
+        <div class="row my-3">
+            <div class="col-8 offset-2 text-end">
+                <p style="font-size: 1.3em">お祝いする方の年齢をご入力ください</p>
+                <p>※年齢の数字のバルーンをお送りいたします。</p>
+                <p style="font-size: 1.3em">
+                    <input type="number" name="age" value="" style="display: inline-block; width: 3em; margin-right: 5px">歳
+                </p>
+            </div>
+        </div>
+ 
         <!-- 合計 -->
         <div class="row my-3">
-            <div class="col-8 offset-4 text-center">
+            <div class="col-6 offset-4 text-end">
                 <h3>合計 3000円</h3>
             </div>
         </div>
