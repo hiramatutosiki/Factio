@@ -20,30 +20,7 @@
         <?php
         require_once 'DBManager.php';
         $dbmng = new DBManager();
-        $result = $dbmng->getRecommendItem($_POST['category']);
-        $count = count($result);
-        echo "<div class=\"row my-5\">
-                <div class=\"col-9 offset-0\">
-                    <h2 class=\"text-left\">カテゴリ $_POST[category]</h2>
-                </div>
-             </div>";
-        echo "<h3>ヒット件数:{$count}件</h1>
-              <div class=\"row row-cols-2 row-cols-sm-2 row-cols-lg-4 g-3 mx-auto\">";
-
-        foreach ($result as $row) {
-            echo "<div class=\"col\">
-                    <form action=\"item_detail.php\" method=\"post\">
-                    <button type=\"submit\" class=\"btn btn-link\" name=\"id\" value=\"$row[item_id]\" style=\"text-decoration: none; color: black\">
-                        <div class=\"card\">
-                            <img src=\"img/$row[item_mainimage]\" class=\"card-img-top img-fluid\" alt=\"$row[item_name]\">
-                            <div class=\"card-body\" >
-                                <h3 class=\"card-title text-center\">$row[item_name]</h3>
-                                <p class=\"card-text text-center h6\">$row[item_price]円</p>
-                            </div>
-                        </div>
-                    </form>
-                </div>";
-        }
+        $dbmng->getItemByCategory($_POST['category']);
         ?>
         </div>
     </div>

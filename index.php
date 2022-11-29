@@ -10,10 +10,10 @@
 
     <title>Factio</title>
     <style>
-        .bg-img{
-            background-image:url(img/rei.jpg);
-            background-size:cover;
-            background-position:center 60%;
+        .bg-img {
+            background-image: url(img/rei.jpg);
+            background-size: cover;
+            background-position: center 60%;
         }
     </style>
 </head>
@@ -23,10 +23,10 @@
     require_once(__DIR__ . '/header.php');
     ?>
     <!-- ジャンボトロン -->
-    <div class ="bg-img p-5">
+    <div class="bg-img p-5">
         <div class="container">
-            <img src="img/rei.jpg"class="img-fluid">
-        </div>      
+            <img src="img/rei.jpg" class="img-fluid">
+        </div>
     </div>
 
     <div class="container-fluid w-75">
@@ -40,25 +40,12 @@
 
         <!-- 商品一覧 -->
         <div class="row row-cols-2 row-cols-sm-2 row-cols-lg-4 g-3 mx-auto">
-        <?php 
-        require_once 'DBManager.php';
-        $dbmng = new DBManager();
-        $result = $dbmng->getRecommendItem('クリスマス');
-            foreach ($result as $row) {
-            echo "<div class=\"col\">
-            <form action=\"item_detail.php\" method=\"post\">
-                <button type=\"submit\" class=\"btn btn-link\" name=\"id\" value=\"$row[item_id]\" style=\"text-decoration: none; color: black\">
-                <div class=\"card\">
-                    <img src=\"img/$row[item_mainimage]\" class=\"card-img-top img-fluid\" alt=\"$row[item_name]\">
-                    <div class=\"card-body\" >
-                        <h3 class=\"card-title text-center\">$row[item_name]</h3>
-                        <p class=\"card-text text-center h6\">$row[item_price]円</p>
-                    </div>
-                </div>
-                </form>
-            </div>";
-            }
-        ?>
+            <?php
+            require_once 'DBManager.php';
+            $dbmng = new DBManager();
+            $dbmng->getItemByCategory('クリスマス');
+            $dbmng->getItemByCategory('年末年始');
+            ?>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
