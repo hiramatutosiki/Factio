@@ -1,3 +1,13 @@
+<?php
+session_start();
+if (!isset($_SESSION['user_id'])) {
+    header('Location: login.php');
+} else {
+    // テスト用
+    echo 'ようこそ' . $_SESSION['user_name'] . 'さん<br>';
+}
+?>
+
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -15,6 +25,10 @@
     <!-- ヘッダー読み込み -->
     <?php
     require_once('header_login.php');
+    // テスト用
+    // require_once 'DBManager.php';
+    // $dbmng = new DBManager();
+    // $dbmng->insertUserMst();
     ?>
 
     <div class="container-fluid">
@@ -26,20 +40,20 @@
         </div>
 
         <!-- フォーム -->
-        <form action="index.php" method="post">
+        <form action="login_check.php" method="post">
             <!-- フォーム：メールアドレス -->
             <div class="row my-3">
                 <div class="col-6 offset-3">
-                    <label for="txt1" class="form-label">メールアドレス</label>
-                    <input type="text" class="form-control" id="txt1" placeholder="name@example.com" name="mail">
+                    <label for="input_mail" class="form-label">メールアドレス</label>
+                    <input type="text" class="form-control" name="user_mail" placeholder="name@example.com">
                 </div>
             </div>
 
             <!-- フォーム：パスワード -->
             <div class="row my-3">
                 <div class="col-6 offset-3">
-                    <label for="txt1" class="form-label">パスワード</label>
-                    <input type="password" class="form-control" id="txt1" placeholder="" name="pass">
+                    <label for="input_password" class="form-label">パスワード</label>
+                    <input type="password" class="form-control" name="user_password">
                 </div>
             </div>
 

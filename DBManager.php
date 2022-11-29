@@ -62,6 +62,36 @@ class DBManager
 		return $searchArray;
 	}
 
+	// ユーザー登録（テスト用）
+	public function insertUserMst()
+	{
+		$pdo = $this->dbConnect();
+		$sql = "INSERT INTO user(user_mail,user_name,user_pass)
+            VALUES(?,?,?)";
+		$ps = $pdo->prepare($sql);
+		$ps->bindValue(1, "test@test.com", PDO::PARAM_STR);
+		$ps->bindValue(2, "test", PDO::PARAM_STR);
+		$ps->bindValue(3, password_hash("testtest", PASSWORD_DEFAULT), PDO::PARAM_STR);
+		$ps->execute();
+	}
+
+	// ユーザーログイン
+	public function checkLoginByMailAndPass($user_mail, $user_password)
+	{
+		$ret = [];
+		$pdo = $this->dbConnect();
+		$sql = "SELECT*FROM user WHERE user_mail = ?";
+		$ps = $pdo->prepare($sql);
+		$ps->bindValue(1, $user_mail, PDO::PARAM_STR);
+		$ps->execute();
+		$userList = $ps->fetchAll();
+		foreach ($userList as $row) {
+			if (password_verify($user_password, $row['user_pass']) == true) {
+				$ret = $userList;
+			}
+		}
+		return $ret;
+
 	// ユーザー情報表示
 	public function getUser($id)
 	{
