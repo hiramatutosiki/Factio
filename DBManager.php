@@ -61,4 +61,40 @@ class DBManager
 		$searchArray = $ps->fetchAll();
 		return $searchArray;
 	}
+
+	// ユーザー情報表示
+	public function getUser($id)
+	{
+		$pdo = $this->dbConnect();
+		$sql = "SELECT * FROM user WHERE user_id= ?";
+		$ps = $pdo->prepare($sql);
+		$ps->bindValue(1,$id,PDO::PARAM_STR);
+		$ps->execute();
+
+		$searchArray = $ps->fetchAll();
+		return $searchArray;
+	}
+
+	// カート内表示
+	public function getCart($id)
+	{
+		$pdo = $this->dbConnect();
+		$sql = "SELECT * FROM cart INNER JOIN item ON cart.item_id = item.item_id WHERE cart.user_id=?";
+		$ps = $pdo->prepare($sql);
+		$ps->bindValue(1,$id,PDO::PARAM_STR);
+		$ps->execute();
+
+		$searchArray = $ps->fetchAll();
+		return $searchArray;
+	}
+
+	// 決済日追加
+	public function updateCart($id)
+	{
+		$pdo = $this->dbConnect();
+		$sql = "UPDATE cart SET buy_date = CURDATE() WHERE user_id = ? AND buy_date IS NULL";
+		$ps = $pdo->prepare($sql);
+		$ps->bindValue(1,$id,PDO::PARAM_STR);
+		$ps->execute();
+	}
 }
