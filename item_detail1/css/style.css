@@ -86,3 +86,7 @@ figure.image {
 .btn2{
     text-align: center;
 }
+
+figure.image img{
+    width: 475px;
+}
