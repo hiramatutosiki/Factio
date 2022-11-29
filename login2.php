@@ -1,4 +1,31 @@
-<!DOCKTYPE HTML>
+<?php
+  $pdo = new PDO('mysql:host=localhost;dbname=webdb;charset=utf8',
+                                          'webuser','abccsd2');
+    if (!empty($_POST)) {
+        /* 入力情報の不備を検知 */
+      if ($_POST['mail'] === "") {
+          $error['mail'] = "blank";
+        }          
+        /* メールアドレスの重複を検知 */
+      if (!isset($error)) {
+        $member = $db->prepare('SELECT COUNT(*) as cnt FROM user WHERE user_mail=?');
+        $member->execute(array(
+            $_POST['mail']
+          ));
+        $record = $member->fetch();
+        if ($record['cnt'] > 0) {
+          $error['mail'] = 'duplicate';
+         }
+        }
+        if (!isset($error)) {
+          $_SESSION['join'] = $_POST;   // フォームの内容をセッションで保存
+          header('Location: login_confirm.php');   // check.phpへ移動
+          exit();
+        }
+    }
+
+?>
+<!DOCTYPE HTML>
 <html>
 <head>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
@@ -71,11 +98,17 @@
             <div class="col-12">
               <label for="email" class="form-label">メールアドレス</label>
               <input type="email" class="form-control required email" id="email" autocomplete="new-password" size="30" name="mail">
+              <?php if (!empty($error["mail"]) && $error['mail'] === 'blank'): ?>
+                <p class="error">＊メールアドレスを入力してください</p>
+              <?php elseif (!empty($error["mail"]) && $error['mail'] === 'duplicate'): ?>
+                <p class="error">＊このメールアドレスはすでに登録済みです</p>
+              <?php endif ?>
             </div>
             <div class="col-12">
               <label for="pass" class="form-label">パスワード</label>
               <div class="input-group has-validation">
                 <input type="password" class="form-control" id="pass" placeholder="" required="" name="pass">
+
               </div>
             </div>
             <label for="post" class="form-label">住所</label>
@@ -102,7 +135,7 @@
                     <button class="btn btn-danger btn-lg" onclick="location.href='login_confirm.php'" style="margin-top: 40px;" type="submit">入力確認</button>
                 </div>
                 <div class="col-12 ppp">
-                    <button class="btn btn-outline-danger btn-lg rounded" onclick="location.href='top.php'" style="margin-top: 40px;" type="submit">Top</button>
+                    <button class="btn btn-outline-danger btn-lg rounded" onclick="location.href='index.php'" style="margin-top: 40px;" type="submit">Top</button>
                 </div>
             </div>
           </form>

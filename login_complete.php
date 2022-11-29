@@ -75,6 +75,10 @@
       <h2>新規会員登録</h2>
       <h3 style="margin-top: 50px;">アカウント登録完了しました</h3>
     </div>
+        <?php
+        require "loginManager.php";
+        $db =new Mesod();
+        ?>
     <div class="container">
         <div class="row">
             <div class="col-12 pp">
