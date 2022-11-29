@@ -90,15 +90,7 @@
     <div class="row">
       <div class="col-6">
         <p class="ppp">メールアドレス</p>
-          <?php
-            require 'loginmanager.php';
-            $dbnn = new mesod();
-            $searc =$dbnn->count($_POST['mail']);
-            if(count($searc)>1){
-              echo "このメールアドレスは既に使用されています";
-              
-            }
-          ?>
+         
       </div>
       <div class="col-6">
         <?php echo $_POST['mail'];?>

@@ -35,7 +35,6 @@
             <p class ="set">・グッズA</p>
             <p class ="set">・グッズB</p>
             <p class ="set">・グッズC</p>
-            <p class ="text">年齢　<input type="text" class="number"> 歳</p> 
         </div> 
             
         </figure>
