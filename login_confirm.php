@@ -91,7 +91,7 @@
     <div class="row">
       <div class="col-6">
         <p class="ppp">メールアドレス</p>
-         
+        
       </div>
       <div class="col-6">
         <?php echo $_POST['mail'];?>

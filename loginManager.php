@@ -3,7 +3,11 @@
 //新規登録する処理
 class Mesod{
 	private function dbsetu(){
+<<<<<<< HEAD
 		$pdo =new PDO('mysql:host=localhost;dbname=webdb;charset=utf8',
+=======
+		$pdo =new PDO('mysql:host=localhost;dbname=factio;charset=utf8',
+>>>>>>> main
 												'webuser','abccsd2');
 		return $pdo;
 	}
