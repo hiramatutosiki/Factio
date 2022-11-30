@@ -16,9 +16,9 @@
     <?php
     require_once('header_login.php');
     // テスト用
-    // require_once 'DBManager.php';
-    // $dbmng = new DBManager();
-    // $dbmng->insertUserMst();
+    //require_once 'DBManager.php';
+    //$dbmng = new DBManager();
+    //$dbmng->insertUserMst();
     ?>
 
     <div class="container-fluid">
