@@ -1,0 +1,133 @@
+@charset "utf8";
+
+.shohintitle{
+    text-align: right;
+    display: inline-block;
+    margin-left: 250px;
+    margin-right: 250px;
+    vertical-align: top;
+}
+
+h2.title{
+   margin-right: 40px; 
+}
+
+p.shohin{
+    text-align: right;
+    margin-left: 20px;
+    margin-right: 250px;
+    vertical-align: middle;
+}
+
+p.set{
+    text-align: right;
+    margin-left:  0px;
+    margin-right: 240px; 
+    vertical-align: middle;
+}
+
+.BGM{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    margin-right: 20px;  
+}
+
+.resipi{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    margin-right: 20px; 
+}
+
+.naiyou{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 40px;
+    margin-right: 20px; 
+}
+
+figure.image {
+    display: inline-block;
+    margin-left: 50px;
+  }
+
+.row{
+    margin-left: 100px;
+    margin-right: 0px;
+}
+
+.number{
+    width: 50px;
+}
+
+.text{
+    margin-left: 20px;
+    margin-right: 150px;    
+}
+
+.text2{
+    margin-left: 20px;
+    margin-right: 150px; 
+    margin-top: 0px;
+    text-align: right; 
+    text-align: top;  
+}
+
+.btn1{
+    position:absolute;
+	right:10px;
+    margin-right: 100px;
+    margin-top: 50px;
+    width: 20em;
+    height: 3em;
+}
+
+.btn2{
+    text-align: center;
+}
+
+/*増減ボタンのCSS*/
+/** input/スピンボタンのラップ要素 **/
+.number-spinner-wrap{
+    position: relative;
+    display: block;
+    width: 150px !important;
+    height: 2rem;
+}
+/** デフォルトのスピンボタンを隠す **/
+.number-spinner-wrap input::-webkit-outer-spin-button,
+.number-spinner-wrap input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+/** input要素 **/
+.number-spinner-wrap input{
+  width: 100%; height: 100%;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  text-align: center;
+}
+/** スピンボタン要素 **/
+.number-spinner-wrap .spinner{
+  position: absolute;
+  top: 50%;
+  width: 1.2rem;
+  transform: translate(0, -50%);
+  font-size: 1rem;
+  padding: 2px .5rem;
+  text-align: center;
+  background: lightgray;
+  cursor: pointer;
+  user-select: none;
+}
+/** 減算のスピンボタン要素 **/
+.number-spinner-wrap .spinner-down{
+  left: 2px;
+  border-right: 1px solid lightgray;
+}
+/** 加算のスピンボタン要素 **/
+.number-spinner-wrap .spinner-up{
+  right: 2px;
+  border-left: 1px solid lightgray;
+}
