@@ -47,8 +47,8 @@
             text-align : center;
         }
         .btn{
-            width: 300px;
-            height: 80px;
+            width: 40%;
+            height: 70%;
         }
         .ppp{
             text-align: center;
@@ -104,7 +104,7 @@
                     <button class="btn btn-danger btn-lg" onclick="location.href='login_confirm.php'" style="margin-top: 40px;" type="submit">入力確認</button>
                 </div>
                 <div class="col-12 ppp">
-                    <button class="btn btn-outline-danger btn-lg rounded" onclick="location.href='index.php'" style="margin-top: 40px;" type="submit">Top</button>
+                    <a class="btn btn-outline-danger btn-lg rounded" onclick="location.href='index.php'" style="margin-top: 40px;" >Top</a>
                 </div>
             </div>
           </form>

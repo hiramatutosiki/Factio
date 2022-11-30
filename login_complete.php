@@ -83,9 +83,9 @@
     $post =$_POST['post'];
     $pro =$_POST['pre'];
     $city =$_POST['city'];
-    require "loginManager.php";
-    $dbnm = new Mesod();
-    $res =$dbnm->getuserID($mail,$pass,$name,$post,$pro,$city);
+    require "DBManager.php";
+    $dbnm = new DBManager();
+    $res =$dbnm->newUser($mail,$pass,$name,$post,$pro,$city);
     ?>
     <div class="container">
         <div class="row">

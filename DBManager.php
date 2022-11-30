@@ -5,7 +5,7 @@ class DBManager
 	private function dbConnect()
 	{
 		$pdo = new PDO(
-			'mysql:host=localhost;dbname=factio;charset=utf8',
+			'mysql:host=localhost;dbname=webdb;charset=utf8',
 			'webuser',
 			'abccsd2'
 		);
@@ -61,71 +61,19 @@ class DBManager
 		$searchArray = $ps->fetchAll();
 		return $searchArray;
 	}
-
-	// ユーザー登録（テスト用）
-	public function insertUserMst()
-	{
-		$pdo = $this->dbConnect();
-		$sql = "INSERT INTO user(user_mail,user_name,user_pass)
-            VALUES(?,?,?)";
-		$ps = $pdo->prepare($sql);
-		$ps->bindValue(1, "test@test.com", PDO::PARAM_STR);
-		$ps->bindValue(2, "test", PDO::PARAM_STR);
-		$ps->bindValue(3, password_hash("testtest", PASSWORD_DEFAULT), PDO::PARAM_STR);
+	public function newUser($mail,$pass,$name,$post,$pro,$city){
+		$pdo =$this->dbConnect();
+		$sql ="INSERT INTO user(user_mail,user_pass,user_name,user_postcode,user_prefecture,user_city,record_date) VALUES (?,?,?,?,?,?,?)";
+		$ps =$pdo->prepare($sql);
+		$day =date("Y/m/d");
+		$ps->bindValue(1,$mail,PDO::PARAM_STR);
+		$ps->bindValue(2,password_hash($pass,PASSWORD_DEFAULT),PDO::PARAM_STR);
+		$ps->bindValue(3,$name,PDO::PARAM_STR);
+		$ps->bindValue(4,$post,PDO::PARAM_STR);
+		$ps->bindValue(5,$pro,PDO::PARAM_STR);
+		$ps->bindValue(6,$city,PDO::PARAM_STR);
+		$ps->bindValue(7,$day,PDO::PARAM_STR);
 		$ps->execute();
 	}
 
-	// ユーザーログイン
-	public function checkLoginByMailAndPass($user_mail, $user_password)
-	{
-		$ret = [];
-		$pdo = $this->dbConnect();
-		$sql = "SELECT*FROM user WHERE user_mail = ?";
-		$ps = $pdo->prepare($sql);
-		$ps->bindValue(1, $user_mail, PDO::PARAM_STR);
-		$ps->execute();
-		$userList = $ps->fetchAll();
-		foreach ($userList as $row) {
-			if (password_verify($user_password, $row['user_pass']) == true) {
-				$ret = $userList;
-			}
-		}
-		return $ret;
-	}
-
-	// ユーザー情報表示
-	public function getUser($id)
-	{
-		$pdo = $this->dbConnect();
-		$sql = "SELECT * FROM user WHERE user_id= ?";
-		$ps = $pdo->prepare($sql);
-		$ps->bindValue(1,$id,PDO::PARAM_STR);
-		$ps->execute();
-
-		$searchArray = $ps->fetchAll();
-		return $searchArray;
-	}
-
-	// カート内表示
-	public function getCart($id)
-	{
-		$pdo = $this->dbConnect();
-		$sql = "SELECT * FROM cart INNER JOIN item ON cart.item_id = item.item_id WHERE cart.user_id=?";
-		$ps = $pdo->prepare($sql);
-		$ps->bindValue(1,$id,PDO::PARAM_STR);
-		$ps->execute();
-
-		$searchArray = $ps->fetchAll();
-		return $searchArray;
-	}
-
-	// 決済日追加
-	public function updateCart($id)
-	{
-		$pdo = $this->dbConnect();
-		$sql = "UPDATE cart SET buy_date = CURDATE() WHERE user_id = ? AND buy_date IS NULL";
-		$ps = $pdo->prepare($sql);
-		$ps->bindValue(1,$id,PDO::PARAM_STR);
-		$ps->execute();
-	}
 }
