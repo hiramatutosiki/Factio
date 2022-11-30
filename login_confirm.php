@@ -56,7 +56,7 @@
           text:center;
         }
         .btn{
-            width: 20%;
+            width: 40%;
             height: 70%;
         }
         .ppp{
@@ -127,7 +127,7 @@
       <input type ="hidden" name="pass" value="<?php echo $_POST['pass'];?>">
       <p class="error">
       <?php
-      if(strlen($_POST['pass'])<8 && !preg_match("/^[a-zA-Z0-9]+$/",$_POST['pass'])){
+      if(strlen($_POST['pass'])<8 || !preg_match("/^[a-zA-Z0-9]+$/",$_POST['pass'])){
         echo "８文字以上の英数字で入力してください";
       }
       ?>
