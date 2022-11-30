@@ -3,6 +3,8 @@ session_start();
 if (isset($_SESSION['user_id'])) {
     // テスト用
     echo 'ようこそ' . $_SESSION['user_name'] . 'さん<br>';
+} else {
+    header('Location: login.php');
 }
 ?>
 
