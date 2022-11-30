@@ -1,3 +1,11 @@
+<?php
+session_start();
+if (isset($_SESSION['user_id'])) {
+    // テスト用
+    echo 'ようこそ' . $_SESSION['user_name'] . 'さん<br>';
+}
+?>
+
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -85,7 +93,7 @@
                 </p>
             </div>
         </div>
- 
+
         <!-- 合計 -->
         <div class="row my-3">
             <div class="col-6 offset-4 text-end">
