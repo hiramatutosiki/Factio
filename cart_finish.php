@@ -45,6 +45,15 @@ if (isset($_SESSION['user_id'])) {
             <button class="btn btn-lg" type="button" style="background-color: #FFFFFF; border-color: #ED6565; color: #ED6565" onclick="location.href='index.php'">Top</button>
         </div>
     </div>
+
+<?php
+	require 'DBManager.php';
+	$dbmng = new DBManager();
+
+	$dbmng->updateCart($_SESSION['user_id']);																								
+		
+?>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 </body>
 

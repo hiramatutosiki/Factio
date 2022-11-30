@@ -110,7 +110,7 @@ class DBManager
 	public function getCart($id)
 	{
 		$pdo = $this->dbConnect();
-		$sql = "SELECT * FROM cart INNER JOIN item ON cart.item_id = item.item_id WHERE cart.user_id=?";
+		$sql = "SELECT * FROM cart INNER JOIN item ON cart.item_id = item.item_id WHERE cart.user_id=? AND cart.buy_date IS NULL";
 		$ps = $pdo->prepare($sql);
 		$ps->bindValue(1,$id,PDO::PARAM_STR);
 		$ps->execute();

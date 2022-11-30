@@ -35,9 +35,16 @@ if (isset($_SESSION['user_id'])) {
         </div>
 
         <!-- 本文 -->
-        <div class="row my-3">
+<?php
+    require 'DBManager.php';
+	$dbmng = new DBManager();
+	$searchArray = $dbmng->getUser($_SESSION['user_id']);
+
+    foreach($searchArray as $row){
+
+echo    '<div class="row my-3">
             <div class="col-6 offset-2">
-                <p class="text-left">田中 太郎 様</p>
+                <p class="text-left">' .$row["user_name"]. '様</p>
             </div>
         </div>
 
@@ -46,37 +53,54 @@ if (isset($_SESSION['user_id'])) {
                 <p>お届け先</p>
             </div>
             <div class="col-3">
-                <p>a</p>
+                <p>' .$row["user_postcode"]. '</p>
             </div>
         </div>
 
         <div class="row my-3">
             <div class="col-3 offset-6">
-                <p>a</p>
+                <p>' .$row["user_prefecture"]. '</p>
             </div>
         </div>
 
         <div class="row my-3">
             <div class="col-3 offset-6">
-                <p>a</p>
+                <p>' .$row["user_city"]. '</p>
             </div>
-        </div>
+        </div>';
+    }
 
-        <div class="row my-3">
+
+echo    '<div class="row my-3">
             <div class="col-3 offset-3">
                 <p>購入商品</p>
             </div>
-            <div class="col-3">
-                <p>a</p>
+        </div>';
+
+
+$searchArray = $dbmng->getCart($_SESSION['user_id']);	
+	$sum = 0;
+foreach($searchArray as $row){
+
+echo    '<div class="row my-3">
+        <div class="col-12 text-center">
+                <p>' .$row["item_name"]. '　' .$row["item_price"]. '円×' .$row["item_num"]. '個</p>
             </div>
-        </div>
+        </div>';
+
+        $sum = $sum + ($row["item_price"]*$row["item_num"]);
+    }
+
+?>
 
         <!-- 合計 -->
-        <div class="row my-3">
+<?php
+echo    '<div class="row my-3">
             <div class="col-3 offset-9">
-                <p>合計　円</p>
+                <p>合計' .$sum. '円</p>
             </div>
-        </div>
+        </div>';
+?>
 
         <!-- ボタン：購入する -->
         <div class="d-grid gap-3 col-2 mx-auto my-5">
