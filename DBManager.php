@@ -128,6 +128,7 @@ class DBManager
 		$ps->bindValue(1,$id,PDO::PARAM_STR);
 		$ps->execute();
 	}
+	//新規登録機能
 	public function newUser($mail,$pass,$name,$post,$pro,$city){
 		$pdo =$this->dbConnect();
 		$sql ="INSERT INTO user(user_mail,user_pass,user_name,user_postcode,user_prefecture,user_city,record_date) VALUES (?,?,?,?,?,?,?)";
