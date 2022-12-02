@@ -99,7 +99,7 @@
         <p class="error">
         <?php
         $mail =$_POST['mail'];
-        $mysql =new PDO('mysql:host=localhost;dbname=webdb;charset=utf8',
+        $mysql =new PDO('mysql:host=localhost;dbname=factio;charset=utf8',
                                 'webuser','abccsd2');
         $sql = "SELECT * FROM user WHERE user_mail =?";
         $ps = $mysql->prepare($sql);

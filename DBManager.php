@@ -5,7 +5,7 @@ class DBManager
 	private function dbConnect()
 	{
 		$pdo = new PDO(
-			'mysql:host=localhost;dbname=webdb;charset=utf8',
+			'mysql:host=localhost;dbname=factio;charset=utf8',
 			'webuser',
 			'abccsd2'
 		);
