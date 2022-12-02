@@ -160,7 +160,7 @@
         <button class="btn btn-danger btn-lg pp" onclick="location.href='login_complete.php'" style="margin-top: 40px;" type="submit" href="login_complete.php">登録</button>
       </div>
       <div class="col-12 pp">
-        <a class="btn btn-outline-danger btn-lg pp" onclick="location.href='login2.php'" style="margin-top: 40px;"  href="login2.php">入力内容を修正する</a>
+        <a class="btn btn-outline-danger btn-lg pp" onclick="location.href='registration.php'" style="margin-top: 40px;"  href="login2.php">入力内容を修正する</a>
       </div>
     </div>
   </main>
