@@ -91,7 +91,7 @@ class DBManager
 			}
 		}
 		return $ret;
-
+		}
 	// ユーザー情報表示
 	public function getUser($id)
 	{

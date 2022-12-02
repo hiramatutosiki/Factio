@@ -46,12 +46,10 @@ if (!isset($_SESSION['user_id'])) {
         <!-- 商品説明 -->
         <div class="col-md-5 offset-1 text-left">
             <h2 class = "title">商品タイトル</h2>
-            <p class ="shohin">セット内容</p>  
-            <ul>
-                <li class="mb-4">セット１</li>
-                <li class="mb-4">セット２</li>
-                <li class="mb-4">セット３</li>
-            </ul>
+            <p>[セット内容]<br>  
+            カラフルバルーン/ガイコツバルーン/タッセル</p>
+            <p>ハロウィンカラーのバルーンに加え、華やかさアップ間違いなしのお部屋に</p>
+            
         </div>
      </div>
         <div class="row mt-md-3">
