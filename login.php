@@ -56,7 +56,7 @@
         <!-- リンク：新規登録 -->
         <div class="row my-3 text-center">
             <div class="col-6 offset-3">
-                <a href="register.php">新規登録はこちら</a>
+                <a href="registration.php">新規登録はこちら</a>
             </div>
         </div>
 
