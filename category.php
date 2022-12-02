@@ -6,6 +6,7 @@ if (isset($_SESSION['user_id'])) {
 }
 ?>
 
+
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -17,44 +18,20 @@ if (isset($_SESSION['user_id'])) {
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 
     <title>Factio</title>
-    <style>
-        .bg-img {
-            background-image: url(img/rei.jpg);
-            background-size: cover;
-            background-position: center 60%;
-        }
-    </style>
 </head>
 
 <body>
     <?php
     require_once(__DIR__ . '/header.php');
     ?>
-    <!-- ジャンボトロン -->
-    <div class="bg-img p-5">
-        <div class="container">
-            <img src="img/rei.jpg" class="img-fluid">
-        </div>
-    </div>
 
     <div class="container-fluid w-75">
-        <!-- 見出し：おすすめ -->
-        <div class="row my-5">
-            <div class="col-9 offset-0">
-                <h1 class="text-left text-weight-bold">TOPICS</h1>
-                <p class="text-left h5">スタッフのおすすめ</p>
-            </div>
-        </div>
-
-        <!-- 商品一覧 -->
-        <div class="row row-cols-2 row-cols-sm-2 row-cols-lg-4 g-3 mx-auto">
-            <?php
-            require_once 'DBManager.php';
-            $dbmng = new DBManager();
-            $dbmng->getItemByCategory('クリスマス');
-            $dbmng->getItemByCategory('年末年始');
-            ?>
-        </div>
+        <?php
+        require_once 'DBManager.php';
+        $dbmng = new DBManager();
+        $dbmng->getItemByCategory($_POST['category']);
+        ?>
+    </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 </body>

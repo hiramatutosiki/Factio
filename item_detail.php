@@ -1,3 +1,11 @@
+<?php
+session_start();
+if (isset($_SESSION['user_id'])) {
+    // テスト用
+    echo 'ようこそ' . $_SESSION['user_name'] . 'さん<br>';
+}
+?>
+
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -24,10 +32,23 @@
             </div>
         </div>
 
-        <!-- 商品メイン画像 -->
+        <?php
+        require_once 'DBManager.php';
+        $dbmng = new DBManager();
+        $result = $dbmng->getItemDetail($_POST['id']);
+        foreach ($result as $row) {
+            echo "$row[item_name]<br>";
+            echo "$row[item_content]<br>";
+            echo "$row[item_explain]<br>";
+            echo "$row[item_price]円<br>";
+            echo "$row[item_mainimage]<br>";
+            echo "$row[item_detailimage1]<br>";
+            echo "$row[item_detailimage2]<br>";
+            echo "$row[item_detailimage3]<br>";
+            echo "$row[item_detailimage4]<br>";
+        }
+        ?>
 
-        <!-- 商品説明 -->
-        
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 </body>
