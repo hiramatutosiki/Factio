@@ -56,8 +56,8 @@
           box-sizing: border-box;
         }
         .btn{
-            width: 300px;
-            height: 80px;
+            width: 40%;
+            height: 70%;
         }
         .ppp{
             text-align: right;
@@ -76,21 +76,21 @@
       <h2>新規会員登録</h2>
       <h3 style="margin-top: 50px;">アカウント登録完了しました</h3>
     </div>
-    <?php
-    $mail =$_POST['mail'];
-    $pass =$_POST['pass'];
-    $name =$_POST['name'];
-    $post =$_POST['post'];
-    $pro =$_POST['pre'];
-    $city =$_POST['city'];
-    require "DBManager.php";
-    $dbnm = new DBManager();
-    $res =$dbnm->newUser($mail,$pass,$name,$post,$pro,$city);
-    ?>
-    <div class="container">
+      <?php
+      $mail =$_POST['mail'];
+      $pass =$_POST['pass'];
+      $name =$_POST['name'];
+      $post =$_POST['post'];
+      $pro =$_POST['pre'];
+      $city =$_POST['city'];
+      require "DBManager.php";
+      $dbnm = new DBManager();
+      $res =$dbnm->newUser($mail,$pass,$name,$post,$pro,$city);
+      ?>
+      <div class="container">
         <div class="row">
             <div class="col-12 pp">
-                <button class="btn btn-outline-danger btn-lg pp" style="margin-top: 40px;" onclick="location.href='index.php'" type="submit">Top</button>
+                <a class="btn btn-outline-danger btn-lg pp" style="margin-top: 40px;" onclick="location.href='index.php'" >Top</a>
             </div>
         </div>
     </div>
