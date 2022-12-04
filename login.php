@@ -1,13 +1,3 @@
-<?php
-session_start();
-if (!isset($_SESSION['user_id'])) {
-    header('Location: login.php');
-} else {
-    // テスト用
-    echo 'ようこそ' . $_SESSION['user_name'] . 'さん<br>';
-}
-?>
-
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -26,9 +16,9 @@ if (!isset($_SESSION['user_id'])) {
     <?php
     require_once('header_login.php');
     // テスト用
-    // require_once 'DBManager.php';
-    // $dbmng = new DBManager();
-    // $dbmng->insertUserMst();
+    //require_once 'DBManager.php';
+    //$dbmng = new DBManager();
+    //$dbmng->insertUserMst();
     ?>
 
     <div class="container-fluid">
@@ -66,7 +56,7 @@ if (!isset($_SESSION['user_id'])) {
         <!-- リンク：新規登録 -->
         <div class="row my-3 text-center">
             <div class="col-6 offset-3">
-                <a href="register.php">新規登録はこちら</a>
+                <a href="registration.php">新規登録はこちら</a>
             </div>
         </div>
 
