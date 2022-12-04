@@ -106,6 +106,19 @@ class DBManager
 		return $searchArray;
 	}
 
+	// カート追加
+	public function insertCart($item_id, $user_id, $item_num)
+	{
+		$pdo = $this->dbConnect();
+		$sql = "INSERT INTO cart(item_id,user_id,item_num,add_date)
+			VALUES(?,?,?,CURDATE())";
+		$ps = $pdo->prepare($sql);
+		$ps->bindValue(1, $item_id, PDO::PARAM_INT);
+		$ps->bindValue(2, $user_id, PDO::PARAM_INT);
+		$ps->bindValue(3, $item_num, PDO::PARAM_INT);
+		$ps->execute();
+	}
+
 	// カート内表示
 	public function getCart($id)
 	{
@@ -128,6 +141,7 @@ class DBManager
 		$ps->bindValue(1,$id,PDO::PARAM_STR);
 		$ps->execute();
 	}
+
 	public function newUser($mail,$pass,$name,$post,$pro,$city){
 		$pdo =$this->dbConnect();
 		$sql ="INSERT INTO user(user_mail,user_pass,user_name,user_postcode,user_prefecture,user_city,record_date) VALUES (?,?,?,?,?,?,?)";
