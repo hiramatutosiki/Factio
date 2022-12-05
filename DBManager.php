@@ -58,19 +58,6 @@ class DBManager
 		return $searchArray;
 	}
 
-	// ユーザー登録（テスト用）
-	public function insertUserMst()
-	{
-		$pdo = $this->dbConnect();
-		$sql = "INSERT INTO user(user_mail,user_name,user_pass)
-            VALUES(?,?,?)";
-		$ps = $pdo->prepare($sql);
-		$ps->bindValue(1, "test@test.com", PDO::PARAM_STR);
-		$ps->bindValue(2, "test", PDO::PARAM_STR);
-		$ps->bindValue(3, password_hash("testtest", PASSWORD_DEFAULT), PDO::PARAM_STR);
-		$ps->execute();
-	}
-
 	// ユーザーログイン
 	public function checkLoginByMailAndPass($user_mail, $user_password)
 	{
@@ -95,7 +82,7 @@ class DBManager
 		$pdo = $this->dbConnect();
 		$sql = "SELECT * FROM user WHERE user_id= ?";
 		$ps = $pdo->prepare($sql);
-		$ps->bindValue(1,$id,PDO::PARAM_STR);
+		$ps->bindValue(1, $id, PDO::PARAM_STR);
 		$ps->execute();
 
 		$searchArray = $ps->fetchAll();
@@ -121,7 +108,33 @@ class DBManager
 		$pdo = $this->dbConnect();
 		$sql = "SELECT * FROM cart INNER JOIN item ON cart.item_id = item.item_id WHERE cart.user_id=? AND cart.buy_date IS NULL";
 		$ps = $pdo->prepare($sql);
-		$ps->bindValue(1,$id,PDO::PARAM_STR);
+		$ps->bindValue(1, $id, PDO::PARAM_STR);
+		$ps->execute();
+
+		$searchArray = $ps->fetchAll();
+		return $searchArray;
+	}
+
+	// カート内アイテム削除
+	public function deleteCartItem($id){
+		$pdo = $this->dbConnect();
+		$sql = "DELETE FROM cart WHERE cart_id=?;";
+		$ps = $pdo->prepare($sql);
+		$ps->bindValue(1, $id, PDO::PARAM_STR);
+		$ps->execute();
+
+		$searchArray = $ps->fetchAll();
+		return $searchArray;
+	}
+
+	// 年齢
+	public function edeitCart($age, $id)
+	{
+		$pdo = $this->dbConnect();
+		$sql = "UPDATE cart SET main_age = ? WHERE user_id = ? AND buy_date IS NULL";
+		$ps = $pdo->prepare($sql);
+		$ps->bindValue(1, $age, PDO::PARAM_STR);
+		$ps->bindValue(2, $id, PDO::PARAM_STR);
 		$ps->execute();
 
 		$searchArray = $ps->fetchAll();
@@ -134,22 +147,25 @@ class DBManager
 		$pdo = $this->dbConnect();
 		$sql = "UPDATE cart SET buy_date = CURDATE() WHERE user_id = ? AND buy_date IS NULL";
 		$ps = $pdo->prepare($sql);
-		$ps->bindValue(1,$id,PDO::PARAM_STR);
+		$ps->bindValue(1, $id, PDO::PARAM_STR);
 		$ps->execute();
 	}
 
-	public function newUser($mail,$pass,$name,$post,$pro,$city){
-		$pdo =$this->dbConnect();
-		$sql ="INSERT INTO user(user_mail,user_pass,user_name,user_postcode,user_prefecture,user_city,record_date) VALUES (?,?,?,?,?,?,?)";
-		$ps =$pdo->prepare($sql);
-		$day =date("Y/m/d");
-		$ps->bindValue(1,$mail,PDO::PARAM_STR);
-		$ps->bindValue(2,password_hash($pass,PASSWORD_DEFAULT),PDO::PARAM_STR);
-		$ps->bindValue(3,$name,PDO::PARAM_STR);
-		$ps->bindValue(4,$post,PDO::PARAM_STR);
-		$ps->bindValue(5,$pro,PDO::PARAM_STR);
-		$ps->bindValue(6,$city,PDO::PARAM_STR);
-		$ps->bindValue(7,$day,PDO::PARAM_STR);
+	// 新規登録
+	public function newUser($mail, $pass, $name, $post, $pro, $city)
+	{
+		$pdo = $this->dbConnect();
+		$sql = "INSERT INTO user(user_mail,user_pass,user_name,user_postcode,user_prefecture,user_city,record_date) VALUES (?,?,?,?,?,?,?)";
+		$ps = $pdo->prepare($sql);
+		$day = date("Y/m/d");
+		$ps->bindValue(1, $mail, PDO::PARAM_STR);
+		$ps->bindValue(2, password_hash($pass, PASSWORD_DEFAULT), PDO::PARAM_STR);
+		$ps->bindValue(3, $name, PDO::PARAM_STR);
+		$ps->bindValue(4, $post, PDO::PARAM_STR);
+		$ps->bindValue(5, $pro, PDO::PARAM_STR);
+		$ps->bindValue(6, $city, PDO::PARAM_STR);
+		$ps->bindValue(7, $day, PDO::PARAM_STR);
+
 		$ps->execute();
 	}
 }
