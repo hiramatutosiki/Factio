@@ -14,20 +14,12 @@
 <body>
     <!-- ヘッダー読み込み -->
     <?php
-     require_once('login.php');
-     header('login.php');
+    require_once('header_login.php');
     // テスト用
     //require_once 'DBManager.php';
     //$dbmng = new DBManager();
     //$dbmng->insertUserMst();
     ?>
-
-    <!-- リンク：Factio -->
-    <div class="row my-3 text-left">
-            <div class="col-6 offset-1">
-                <a class="navbar-brand ms-5" href="index.php" style="font-size: 1.5em">Factio</a>
-            </div>
-        </div>
 
     <div class="container-fluid">
         <!-- 見出し：ログイン -->
@@ -38,7 +30,7 @@
         </div>
 
         <!-- フォーム -->
-        <form action="logincheck.php" method="post">
+        <form action="login_check.php" method="post">
             <!-- フォーム：メールアドレス -->
             <div class="row my-3">
                 <div class="col-6 offset-3">
@@ -51,7 +43,7 @@
             <div class="row my-3">
                 <div class="col-6 offset-3">
                     <label for="input_password" class="form-label">パスワード</label>
-                    <input type="password" class="form-control" name="user_pass">
+                    <input type="password" class="form-control" name="user_password">
                 </div>
             </div>
 
