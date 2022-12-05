@@ -7,7 +7,11 @@
 class DBManager {
 	//接続のメソッド
 	private function dbConnect(){
-		$pdo = new PDO('mysql:host=localhost;dbname=webdb;charset=utf8','webuser','abccsd2');
+		$pdo = new PDO(
+			'mysql:host=mysql207.phy.lolipop.lan;dbname=LAA1418466-kaihatuensyu;charset=utf8',
+			'LAA1418466',
+			'oboeyasui'
+		);
 		return $pdo;
 	}
 //userをID指定で取得するメソッド
