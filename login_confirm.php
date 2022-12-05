@@ -99,8 +99,7 @@
         <p class="error">
         <?php
         $mail =$_POST['mail'];
-        $mysql =new PDO('mysql:host=mysql207.phy.lolipop.lan;dbname=LAA1418466-kaihatuensyu;charset=utf8',
-                                'LAA1418466','oboeyasui');
+        $mysql =new PDO('mysql:host=mysql207.phy.lolipop.lan;dbname=LAA1418466-kaihatuensyu;charset=utf8','LAA1418466','oboeyasui');
         $sql = "SELECT * FROM user WHERE user_mail =?";
         $ps = $mysql->prepare($sql);
         $ps->bindValue(1,$_POST['mail'],PDO::PARAM_STR);
