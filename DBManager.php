@@ -4,11 +4,7 @@ class DBManager
 	// 接続メソッド
 	private function dbConnect()
 	{
-		$pdo = new PDO(
-			'mysql:host=localhost;dbname=factio;charset=utf8',
-			'webuser',
-			'abccsd2'
-		);
+		$pdo = new PDO('mysql:host=mysql207.phy.lolipop.lan;dbname=LAA1418466-kaihatuensyu;charset=utf8','LAA1418466','oboeyasui');
 		return $pdo;
 	}
 
@@ -93,6 +89,19 @@ class DBManager
 		return $searchArray;
 	}
 
+	// カート追加
+	public function insertCart($item_id, $user_id, $item_num)
+	{
+		$pdo = $this->dbConnect();
+		$sql = "INSERT INTO cart(item_id,user_id,item_num,add_date)
+			VALUES(?,?,?,CURDATE())";
+		$ps = $pdo->prepare($sql);
+		$ps->bindValue(1, $item_id, PDO::PARAM_INT);
+		$ps->bindValue(2, $user_id, PDO::PARAM_INT);
+		$ps->bindValue(3, $item_num, PDO::PARAM_INT);
+		$ps->execute();
+	}
+
 	// カート内表示
 	public function getCart($id)
 	{
@@ -156,6 +165,7 @@ class DBManager
 		$ps->bindValue(5, $pro, PDO::PARAM_STR);
 		$ps->bindValue(6, $city, PDO::PARAM_STR);
 		$ps->bindValue(7, $day, PDO::PARAM_STR);
+
 		$ps->execute();
 	}
 }
