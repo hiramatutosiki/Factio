@@ -57,6 +57,7 @@ class DBManager
 		$searchArray = $ps->fetchAll();
 		return $searchArray;
 	}
+
 	// ユーザーログイン
 	public function checkLoginByMailAndPass($user_mail, $user_password)
 	{

@@ -1,11 +1,3 @@
-<?php
-session_start();
-if (isset($_SESSION['user_id'])) {
-    // テスト用
-    echo 'ようこそ' . $_SESSION['user_name'] . 'さん<br>';
-}
-?>
-
 <!DOCTYPE html>
 <html lang="ja">
 
