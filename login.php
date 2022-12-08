@@ -16,14 +16,6 @@
     <?php
     require_once('header_login.php');
     ?>
-
-    <!-- リンク：Factio -->
-    <div class="row my-3 text-left">
-            <div class="col-6 offset-1">
-                <a class="navbar-brand ms-5" href="index.php" style="font-size: 1.5em">Factio</a>
-            </div>
-        </div>
-
     <div class="container-fluid">
         <!-- 見出し：ログイン -->
         <div class="row my-5">
