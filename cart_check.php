@@ -1,8 +1,8 @@
 <?php
 session_start();
 if (isset($_SESSION['user_id'])) {
-    // テスト用
-    echo 'ようこそ' . $_SESSION['user_name'] . 'さん<br>';
+} else {
+    header('Location: login.php');
 }
 ?>
 
@@ -28,7 +28,7 @@ if (isset($_SESSION['user_id'])) {
 
     <div class="container-fluid">
         <!-- 見出し：お支払い -->
-        <div class="row my-5">
+        <div class="row my-5">ｚ
             <div class="col-6 offset-1">
                 <h1 class="text-left">お支払い</h1>
             </div>

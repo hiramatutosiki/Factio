@@ -1,9 +1,7 @@
 <?php
 session_start();
-if (isset($_SESSION['user_id'])) {
-    // テスト用
-    echo 'ようこそ' . $_SESSION['user_name'] . 'さん<br>';
-}
+
+
 ?>
 
 
@@ -31,8 +29,8 @@ if (isset($_SESSION['user_id'])) {
         $dbmng = new DBManager();
         $dbmng->getItemByCategory($_POST['category']);
         ?>
-    </div>
-    </div>
+        </div>
+ </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 </body>
 

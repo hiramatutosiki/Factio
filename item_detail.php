@@ -117,7 +117,7 @@ echo    '<!-- BGM -->
 }
 
 echo       '<div class="text-center mt-4 mb-4">
-               <button class ="btn btn-outline-danger rounded-pill btn-lg w-25">戻る</button>
+              <input class ="btn btn-outline-danger rounded-pill btn-lg w-25" value="戻る" onclick="history.back();" type="button">
            </div>
            ';
            }
