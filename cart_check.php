@@ -28,7 +28,7 @@ if (isset($_SESSION['user_id'])) {
 
     <div class="container-fluid">
         <!-- 見出し：お支払い -->
-        <div class="row my-5">ｚ
+        <div class="row my-5">
             <div class="col-6 offset-1">
                 <h1 class="text-left">お支払い</h1>
             </div>
@@ -85,7 +85,7 @@ if (isset($_SESSION['user_id'])) {
 
             echo '<div class="row my-3">
                     <div class="col-12 text-center">
-                        <p>' . $row["item_name"] . '　' . $row["item_price"] . '円×' . $row["item_num"] . '個</p>
+                        <p>' . $row["item_name"] . ' ' . $row["item_price"] . '円×' . $row["item_num"] . '個</p>
                     </div>
         </div>';
 
