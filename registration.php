@@ -46,8 +46,8 @@
             text-align : center;
         }
         .btn{
-            width: 30%;
-            height: 60%;
+            width: 40%;
+            height: 70%;
         }
         .ppp{
             text-align: center;

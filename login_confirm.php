@@ -53,11 +53,11 @@
           font-size: 90%;
           color: red;
           box-sizing: border-box;
-          
+          text:center;
         }
         .btn{
-            width: 300px;
-            height: 80px;
+            width: 40%;
+            height: 70%;
         }
         .ppp{
             text-align: right;
@@ -96,8 +96,27 @@
       <div class="col-6">
         <?php echo $_POST['mail'];?>
         <input type ="hidden" name="mail" value="<?php  echo $_POST['mail'];?>">
-      </div>
+        <p class="error">
+        <?php
+        $mail =$_POST['mail'];
+        $mysql =new PDO('mysql:host=localhost;dbname=factio;charset=utf8',
+                                'webuser','abccsd2');
+        $sql = "SELECT * FROM user WHERE user_mail =?";
+        $ps = $mysql->prepare($sql);
+        $ps->bindValue(1,$_POST['mail'],PDO::PARAM_STR);
+        $ps->execute();
+        $user = $ps ->fetchAll();
+          foreach($user as $row){
+          if(!isset($row['$mail'])){
+            echo 'そのメールアドレスはすでに登録されています！';
+          }
+        }
+        ?>
+      </p>
     </div>
+  </div>
+  
+
     <div class="row">
       <div class="col-6">
         <p class="ppp">パスワード</p>
@@ -106,6 +125,13 @@
         <input type="password" id="input_pass" name="input_pass" value="<?php echo $_POST['pass'];?>" disabled>
 	    <button class="btn btn-secondary btn-sm btns" id="btn_passview">表示</button>
       <input type ="hidden" name="pass" value="<?php echo $_POST['pass'];?>">
+      <p class="error">
+      <?php
+      if(strlen($_POST['pass'])<8 || !preg_match("/^[a-zA-Z0-9]+$/",$_POST['pass'])){
+        echo "８文字以上の英数字で入力してください";
+      }
+      ?>
+      </p>
       </div>
     </div>
     <div class="row">
@@ -134,12 +160,13 @@
         <button class="btn btn-danger btn-lg pp" onclick="location.href='login_complete.php'" style="margin-top: 40px;" type="submit" href="login_complete.php">登録</button>
       </div>
       <div class="col-12 pp">
-        <button class="btn btn-outline-danger btn-lg pp" onclick="location.href='login.php'" style="margin-top: 40px;" type="submit" href="login.php">入力内容を修正する</button>
+        <a class="btn btn-outline-danger btn-lg pp" onclick="location.href='login2.php'" style="margin-top: 40px;"  href="login2.php">入力内容を修正する</a>
       </div>
     </div>
   </main>
 </div>
  </form>
+ 
 
   
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>

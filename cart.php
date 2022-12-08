@@ -59,7 +59,23 @@ if (isset($_SESSION['user_id'])) {
                         <p class="text-end">' . $row["item_price"] . '円</p>
                     </div>';
 
-                    $sum = $sum + ($row["item_price"] * $row["item_num"]);
+        <!-- 年齢 -->
+        <div class="row my-3">
+            <div class="col-8 offset-2 text-end">
+                <p style="font-size: 1.3em">お祝いする方の年齢をご入力ください</p>
+                <p>※年齢の数字のバルーンをお送りいたします。</p>
+                <p style="font-size: 1.3em">
+                    <input type="number" name="age" value="" style="display: inline-block; width: 3em; margin-right: 5px">歳
+                </p>
+            </div>
+        </div>
+
+        <!-- 合計 -->
+        <div class="row my-3">
+            <div class="col-6 offset-4 text-end">
+                <h3>合計 3000円</h3>
+            </div>
+        </div>
 
                     echo ' <div class="col-md-2 col-10 offset-1">
                         <p style="display: inline-block; padding: 10px;">個数</p>
