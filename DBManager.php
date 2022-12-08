@@ -182,6 +182,24 @@ class DBManager
 
 		$ps->execute();
 	}
+
+	// 新規登録
+	public function newUser($mail, $pass, $name, $post, $pro, $city)
+	{
+		$pdo = $this->dbConnect();
+		$sql = "INSERT INTO user(user_mail,user_pass,user_name,user_postcode,user_prefecture,user_city,record_date) VALUES (?,?,?,?,?,?,?)";
+		$ps = $pdo->prepare($sql);
+		$day = date("Y/m/d");
+		$ps->bindValue(1, $mail, PDO::PARAM_STR);
+		$ps->bindValue(2, password_hash($pass, PASSWORD_DEFAULT), PDO::PARAM_STR);
+		$ps->bindValue(3, $name, PDO::PARAM_STR);
+		$ps->bindValue(4, $post, PDO::PARAM_STR);
+		$ps->bindValue(5, $pro, PDO::PARAM_STR);
+		$ps->bindValue(6, $city, PDO::PARAM_STR);
+		$ps->bindValue(7, $day, PDO::PARAM_STR);
+
+		$ps->execute();
+	}
 	// カテゴリ：誕生日の商品がカートにあるかチェック
     public function cartCheckBirthdayItem($array)
     {

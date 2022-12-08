@@ -52,9 +52,6 @@
         .ppp{
             text-align: center;
         }
-	.text-center{
-		padding-top: 10px;
-	}
     </style>
 </head>
 <body>
@@ -106,7 +103,7 @@
               </div>
             </div>
             </div>
-            <div class="row mb-2">
+            <div class="row">
                 <div class="col-12">
                 <label for="address" class="form-label">市区町村・番地・建物名・号室</label>
                 <input type="text" class="form-control" id="address" placeholder="" required="" name="city">

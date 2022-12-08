@@ -33,7 +33,7 @@ if (!isset($_SESSION['user_id'])) {
             </div>
         </div>
 
-        <?php
+<?php
         require_once 'DBManager.php';
         $dbmng = new DBManager();
         $result = $dbmng->getItemDetail($_POST['id']);

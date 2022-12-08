@@ -38,8 +38,7 @@ if (isset($_SESSION['user_id'])) {
         <?php
         require 'DBManager.php';
         $dbmng = new DBManager();
-        $dbmng->editCartItemNum($_POST['item_num'], $_POST['cart_id']);
-        $dbmng->addCartAge($_POST['age'], $_SESSION['user_id']);
+        $dbmng->edeitCart($_POST['age'], $_SESSION['user_id']);
         $searchArray = $dbmng->getUser($_SESSION['user_id']);
 
         foreach ($searchArray as $row) {

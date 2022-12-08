@@ -99,8 +99,7 @@
         <p class="error">
         <?php
         $mail =$_POST['mail'];
-        $mysql =new PDO('mysql:host=localhost;dbname=factio;charset=utf8',
-                                'webuser','abccsd2');
+        $mysql =new PDO('mysql:host=mysql207.phy.lolipop.lan;dbname=LAA1418466-kaihatuensyu;charset=utf8','LAA1418466','oboeyasui');
         $sql = "SELECT * FROM user WHERE user_mail =?";
         $ps = $mysql->prepare($sql);
         $ps->bindValue(1,$_POST['mail'],PDO::PARAM_STR);
@@ -160,7 +159,7 @@
         <button class="btn btn-danger btn-lg pp" onclick="location.href='login_complete.php'" style="margin-top: 40px;" type="submit" href="login_complete.php">登録</button>
       </div>
       <div class="col-12 pp">
-        <a class="btn btn-outline-danger btn-lg pp" onclick="location.href='login2.php'" style="margin-top: 40px;"  href="login2.php">入力内容を修正する</a>
+        <a class="btn btn-outline-danger btn-lg pp" onclick="location.href='registration.php'" style="margin-top: 40px;"  href="login2.php">入力内容を修正する</a>
       </div>
     </div>
   </main>
