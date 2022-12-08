@@ -1,3 +1,10 @@
+<?php
+session_start();
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -17,73 +24,13 @@
     ?>
 
     <div class="container-fluid w-75">
-   
-        <!-- 見出し -->
-        <div class="row my-5">
-            <div class="col-9 offset-0">
-                <h2 class="text-left">カテゴリ　クリスマス</h2>
-            
-        </div>
-
-        <!-- 商品一覧 -->
-        <div class="row row-cols-2 row-cols-sm-3 row-cols-lg-4 g-4 mx-auto">
-
-            <div class="col" style="">
-                <div class="card ">
-                <img src="img/サンプル1.png" class="card-img-top img-fluid  " alt="">
-                    <div class="card-body">
-                        <h3 class="card-title text-center">商品タイトル</h3>
-                        <p class="card-text text-center h6">1,000円</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col" style="">
-                <div class="card ">
-                    <img src="img/サンプル2.jpg" class="card-img-top img-fluid  " alt="">
-                    <div class="card-body">
-                        <h3 class="card-title text-center">商品タイトル</h3>
-                        <p class="card-text text-center h6">1,000円</p>
-                    </div>
-                </div>
-            </div>
-       
-    
-            <div class="col" style="">
-                <div class="card ">
-                 <img src="img/サンプル3.jpg" class="card-img-top img-fluid  " alt="">
-                    <div class="card-body">
-                        <h3 class="card-title text-center">商品タイトル</h3>
-                        <p class="card-text text-center h6">1,000円</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col" style="">
-                <div class="card ">
-                    <img src="img/サンプル4.png" class="card-img-top img-fluid  " alt="">
-                    <div class="card-body">
-                        <h3 class="card-title text-center">商品タイトル</h3>
-                        <p class="card-text text-center h6">1,000円</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col" style="">
-                <div class="card ">
-                    <img src="img/サンプル4.png" class="card-img-top img-fluid  " alt="">
-                    <div class="card-body">
-                        <h3 class="card-title text-center">商品タイトル</h3>
-                        <p class="card-text text-center h6">1,000円</p>
-                    </div>
-                </div>
-            </div>
-
-     </div>
-     <div class="d-grid gap-3 col-3 mx-auto my-5">
-            <button class="btn btn-lg" type="button" style="background-color: #FFFFFF; border-color: #ED6565; color: #ED6565" onclick="location.href='index.php'">Top</button>
-        </div>
- </div>
+        <?php
+        require_once 'DBManager.php';
+        $dbmng = new DBManager();
+        $dbmng->getItemByCategory($_POST['category']);
+        ?>
+    </div>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 </body>
 

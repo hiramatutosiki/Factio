@@ -14,7 +14,11 @@
 <body>
     <!-- ヘッダー読み込み -->
     <?php
-    require_once('header.php');
+    require_once('header_login.php');
+    // テスト用
+    //require_once 'DBManager.php';
+    //$dbmng = new DBManager();
+    //$dbmng->insertUserMst();
     ?>
 
     <div class="container-fluid">
@@ -26,39 +30,39 @@
         </div>
 
         <!-- フォーム -->
-        <form action="index.php" method="post">
+        <form action="login_check.php" method="post">
             <!-- フォーム：メールアドレス -->
             <div class="row my-3">
                 <div class="col-6 offset-3">
-                    <label for="txt1" class="form-label">メールアドレス</label>
-                    <input type="text" class="form-control" id="txt1" placeholder="name@example.com" name ="mail">
+                    <label for="input_mail" class="form-label">メールアドレス</label>
+                    <input type="text" class="form-control" name="user_mail" placeholder="name@example.com">
                 </div>
             </div>
 
             <!-- フォーム：パスワード -->
             <div class="row my-3">
                 <div class="col-6 offset-3">
-                    <label for="txt1" class="form-label">パスワード</label>
-                    <input type="password" class="form-control" id="txt1" placeholder="" name ="pass">
+                    <label for="input_password" class="form-label">パスワード</label>
+                    <input type="password" class="form-control" name="user_password">
                 </div>
             </div>
 
             <!-- ボタン：ログイン -->
             <div class="d-grid gap-3 col-2 mx-auto my-5">
-                <button class="btn btn-lg" type="submit" style="background-color: #ED6565; color: #FFFFFF">ログイン</button>
+                <button class="btn btn-lg text-nowrap" type="submit" style="background-color: #ED6565; color: #FFFFFF">ログイン</button>
             </div>
         </form>
 
         <!-- リンク：新規登録 -->
         <div class="row my-3 text-center">
             <div class="col-6 offset-3">
-                <a href="login2.php">新規登録はこちら</a>
+                <a href="registration.php">新規登録はこちら</a>
             </div>
         </div>
 
         <!-- ボタン：Top -->
         <div class="d-grid gap-3 col-2 mx-auto my-5">
-            <button class="btn btn-lg" type="button" style="background-color: #FFFFFF; border-color: #ED6565; color: #ED6565" onclick="location.href='index.php'">Top</button>
+            <button class="btn btn-lg text-nowrap" type="button" style="background-color: #FFFFFF; border-color: #ED6565; color: #ED6565" onclick="location.href='index.php'">Top</button>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>

@@ -1,4 +1,4 @@
-<!DOCKTYPE HTML>
+<!DOCTYPE HTML>
 <html>
 <head>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
@@ -53,6 +53,7 @@
           font-size: 90%;
           color: red;
           box-sizing: border-box;
+          
         }
         .btn{
             width: 300px;
@@ -71,6 +72,7 @@
     </style>
 </head>
 <body>
+  <form action ="login_complete.php" method="post">
     <div class="text-center">
       <h2>新規会員登録</h2>
       <h3 style="margin-top: 50px;">以下の内容で登録しますか？</h3>
@@ -82,19 +84,18 @@
         <p class="ppp">氏名</p>
       </div>
       <div class="col-6">
-        <?php
-        echo $_POST['name'];
-        ?>
+        <?php echo $_POST['name'];?>
+        <input type ="hidden" name="name" value="<?php echo $_POST['name'];?>">
       </div>
     </div>
     <div class="row">
       <div class="col-6">
         <p class="ppp">メールアドレス</p>
+        
       </div>
       <div class="col-6">
-        <?php
-        echo $_POST['mail'];
-        ?>
+        <?php echo $_POST['mail'];?>
+        <input type ="hidden" name="mail" value="<?php  echo $_POST['mail'];?>">
       </div>
     </div>
     <div class="row">
@@ -104,6 +105,7 @@
       <div class="col-6">
         <input type="password" id="input_pass" name="input_pass" value="<?php echo $_POST['pass'];?>" disabled>
 	    <button class="btn btn-secondary btn-sm btns" id="btn_passview">表示</button>
+      <input type ="hidden" name="pass" value="<?php echo $_POST['pass'];?>">
       </div>
     </div>
     <div class="row">
@@ -111,25 +113,22 @@
         <p class="ppp">住所</p>
       </div>
       <div class="col-6">
-        <?php
-        echo $_POST['post'];
-        ?>
+        <?php echo $_POST['post'];?>
+        <input type ="hidden" name="post" value="<?php echo $_POST['post']; ?>">
       </div>
     </div>
     <div class="row">
       <div class="col-6"></div>
       <div class="col-6">
-        <?php
-        echo $_POST['pro'];
-        ?>
+        <?php echo $_POST['pre'];?>
+        <input type ="hidden" name="pre" value="<?php echo $_POST['pre'];?>">
       </div>
     </div>
     <div class="row">
       <div class="col-6"></div>
       <div class="col-6">
-        <?php
-        echo $_POST['city'];
-        ?>
+        <?php echo $_POST['city']; ?>
+        <input type ="hidden" name="city" value="<?php echo $_POST['city'];?>">
       </div>
       <div class="col-12 pp">
         <button class="btn btn-danger btn-lg pp" onclick="location.href='login_complete.php'" style="margin-top: 40px;" type="submit" href="login_complete.php">登録</button>
@@ -140,6 +139,7 @@
     </div>
   </main>
 </div>
+ </form>
 
   
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>

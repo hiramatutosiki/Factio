@@ -1,30 +1,3 @@
-<?php
-  $pdo = new PDO('mysql:host=localhost;dbname=webdb;charset=utf8',
-                                          'webuser','abccsd2');
-    if (!empty($_POST)) {
-        /* 入力情報の不備を検知 */
-      if ($_POST['mail'] === "") {
-          $error['mail'] = "blank";
-        }          
-        /* メールアドレスの重複を検知 */
-      if (!isset($error)) {
-        $member = $db->prepare('SELECT COUNT(*) as cnt FROM user WHERE user_mail=?');
-        $member->execute(array(
-            $_POST['mail']
-          ));
-        $record = $member->fetch();
-        if ($record['cnt'] > 0) {
-          $error['mail'] = 'duplicate';
-         }
-        }
-        if (!isset($error)) {
-          $_SESSION['join'] = $_POST;   // フォームの内容をセッションで保存
-          header('Location: login_confirm.php');   // check.phpへ移動
-          exit();
-        }
-    }
-
-?>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -44,7 +17,7 @@
             align-items: center;
             padding-top: 40px;
             padding-bottom: 40px;
-            padding-top: 150px;
+            padding-top: 10px;
         }
 
         .form-signin {
@@ -73,46 +46,53 @@
             text-align : center;
         }
         .btn{
-            width: 300px;
-            height: 80px;
+            width: 30%;
+            height: 60%;
         }
         .ppp{
             text-align: center;
         }
+	.text-center{
+		padding-top: 10px;
+	}
     </style>
 </head>
 <body>
+<?php
+   require_once('header_login.php');
+ ?>
     <div class="text-center">
       <h2>新規会員登録</h2>
       </div>
       <div class="container">
   <main>
-    <div class="row">
+    <div class="row gx-3 ">
       <div class="col-12 offset-md-3 col-md-6"><!--col-md-7 col-lg-8-->
         <form action="login_confirm.php" method="post" name="myForm" class="validationForm" novalidate>
-          <!--<div class="row g-3">-->
-            <div class="col-12">
+         <div class="row mb-3">
+            <div class="col-12　pb-3">
               <label for="username" class="form-label">氏名</label>
               <input type="text" class="form-control" id="username" name="name">
             </div>
+	  </div>
+	<div class="row mb-3">
             <div class="col-12">
               <label for="email" class="form-label">メールアドレス</label>
-              <input type="email" class="form-control required email" id="email" autocomplete="new-password" size="30" name="mail">
-              <?php if (!empty($error["mail"]) && $error['mail'] === 'blank'): ?>
-                <p class="error">＊メールアドレスを入力してください</p>
-              <?php elseif (!empty($error["mail"]) && $error['mail'] === 'duplicate'): ?>
-                <p class="error">＊このメールアドレスはすでに登録済みです</p>
-              <?php endif ?>
-            </div>
+              <input type="text" class="form-control required email" id="email" autocomplete="new-password" size="30" name="mail">
+	     </div>
+          </div>
+	<div class="row mb-3">
             <div class="col-12">
               <label for="pass" class="form-label">パスワード</label>
               <div class="input-group has-validation">
                 <input type="password" class="form-control" id="pass" placeholder="" required="" name="pass">
-
               </div>
-            </div>
+	 </div>
+      </div>
+        <div class="row mb-2">
             <label for="post" class="form-label">住所</label>
-            <div class="row">
+	</div>
+           <div class="row mb-3">
             <div class="col-6">
               <label for="post" class="form-label">郵便番号</label>
               <div class="input-group has-validation">
@@ -122,20 +102,23 @@
             <div class="col-6">
               <label for="username" class="form-label">都道府県</label>
               <div class="input-group has-validation">
-                <input type="text" class="form-control" id="username" placeholder="" required="" name="pro">
+                <input type="text" class="form-control" id="username" placeholder="" required="" name="pre">
               </div>
             </div>
             </div>
-            <div class="row">
+            <div class="row mb-2">
                 <div class="col-12">
                 <label for="address" class="form-label">市区町村・番地・建物名・号室</label>
                 <input type="text" class="form-control" id="address" placeholder="" required="" name="city">
                 </div>
+	     </div>
+	     <div class="row">
                 <div class="col-12 ppp">
                     <button class="btn btn-danger btn-lg" onclick="location.href='login_confirm.php'" style="margin-top: 40px;" type="submit">入力確認</button>
                 </div>
+	      </div>
                 <div class="col-12 ppp">
-                    <button class="btn btn-outline-danger btn-lg rounded" onclick="location.href='index.php'" style="margin-top: 40px;" type="submit">Top</button>
+                    <a class="btn btn-outline-danger btn-lg rounded" onclick="location.href='index.php'" style="margin-top: 40px;" >Top</a>
                 </div>
             </div>
           </form>
