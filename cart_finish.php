@@ -1,9 +1,5 @@
 <?php
 session_start();
-if (isset($_SESSION['user_id'])) {
-    // テスト用
-    echo 'ようこそ' . $_SESSION['user_name'] . 'さん<br>';
-}
 ?>
 
 <!DOCTYPE html>
@@ -22,7 +18,7 @@ if (isset($_SESSION['user_id'])) {
 <body>
     <!-- ヘッダー読み込み -->
     <?php
-    require_once('header.php');
+    require_once('header_login.php');
     ?>
 
     <div class="container-fluid">
@@ -42,7 +38,7 @@ if (isset($_SESSION['user_id'])) {
 
         <!-- ボタン：Top -->
         <div class="d-grid gap-3 col-2 mx-auto my-5">
-            <button class="btn btn-lg" type="button" style="background-color: #FFFFFF; border-color: #ED6565; color: #ED6565" onclick="location.href='index.php'">Top</button>
+           <button class="btn btn-lg rounded-pill" type="button" style="background-color: #FFFFFF; border-color: #ED6565; color: #ED6565" onclick="location.href='index.php'">Top</button>
         </div>
     </div>
 

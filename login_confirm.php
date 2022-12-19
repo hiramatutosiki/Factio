@@ -1,3 +1,9 @@
+<?php
+
+   if(empty($_POST['mail'])){
+     	 header('Location:registration.php');
+      }
+  ?>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -17,7 +23,7 @@
             align-items: center;
             padding-top: 40px;
             padding-bottom: 40px;
-            padding-top: 150px;
+            padding-top: 10px;
         }
 
         .form-signin {
@@ -56,8 +62,8 @@
           text:center;
         }
         .btn{
-            width: 40%;
-            height: 70%;
+            width: 20%;
+            height: 60%
         }
         .ppp{
             text-align: right;
@@ -69,9 +75,15 @@
         .pp{
             text-align: center;
         }
+	.text-center{
+		padding-top:20px;
+	}
     </style>
 </head>
 <body>
+	<?php
+		require_once('header_login.php');
+	?>
   <form action ="login_complete.php" method="post">
     <div class="text-center">
       <h2>新規会員登録</h2>
@@ -98,6 +110,7 @@
         <input type ="hidden" name="mail" value="<?php  echo $_POST['mail'];?>">
         <p class="error">
         <?php
+	$isError =false;
         $mail =$_POST['mail'];
         $mysql =new PDO('mysql:host=mysql207.phy.lolipop.lan;dbname=LAA1418466-kaihatuensyu;charset=utf8','LAA1418466','oboeyasui');
         $sql = "SELECT * FROM user WHERE user_mail =?";
@@ -108,6 +121,7 @@
           foreach($user as $row){
           if(!isset($row['$mail'])){
             echo 'そのメールアドレスはすでに登録されています！';
+	$isError =true;
           }
         }
         ?>
@@ -128,6 +142,7 @@
       <?php
       if(strlen($_POST['pass'])<8 || !preg_match("/^[a-zA-Z0-9]+$/",$_POST['pass'])){
         echo "８文字以上の英数字で入力してください";
+	$isError = true;
       }
       ?>
       </p>
@@ -156,15 +171,17 @@
         <input type ="hidden" name="city" value="<?php echo $_POST['city'];?>">
       </div>
       <div class="col-12 pp">
+	<?php if($isError == false){ ?>
         <button class="btn btn-danger btn-lg pp" onclick="location.href='login_complete.php'" style="margin-top: 40px;" type="submit" href="login_complete.php">登録</button>
+	<?php } ?>
       </div>
       <div class="col-12 pp">
-        <a class="btn btn-outline-danger btn-lg pp" onclick="location.href='registration.php'" style="margin-top: 40px;"  href="login2.php">入力内容を修正する</a>
+        <a class="btn btn-outline-danger btn-lg pp" onclick="location.href='registration.php'" style="margin-top: 40px;"  href="registration.php">入力内容を修正する</a>
       </div>
     </div>
   </main>
 </div>
- </form>
+</form>
  
 
   

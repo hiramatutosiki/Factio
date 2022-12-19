@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -14,20 +18,8 @@
 <body>
     <!-- ヘッダー読み込み -->
     <?php
-     require_once('login.php');
-     header('login.php');
-    // テスト用
-    //require_once 'DBManager.php';
-    //$dbmng = new DBManager();
-    //$dbmng->insertUserMst();
+    require_once('header_login.php');
     ?>
-
-    <!-- リンク：Factio -->
-    <div class="row my-3 text-left">
-            <div class="col-6 offset-1">
-                <a class="navbar-brand ms-5" href="index.php" style="font-size: 1.5em">Factio</a>
-            </div>
-        </div>
 
     <div class="container-fluid">
         <!-- 見出し：ログイン -->
@@ -38,7 +30,7 @@
         </div>
 
         <!-- フォーム -->
-        <form action="logincheck.php" method="post">
+        <form action="login_check.php" method="post">
             <!-- フォーム：メールアドレス -->
             <div class="row my-3">
                 <div class="col-6 offset-3">
@@ -51,7 +43,7 @@
             <div class="row my-3">
                 <div class="col-6 offset-3">
                     <label for="input_password" class="form-label">パスワード</label>
-                    <input type="password" class="form-control" name="user_pass">
+                    <input type="password" class="form-control" name="user_password">
                 </div>
             </div>
 
@@ -70,7 +62,7 @@
 
         <!-- ボタン：Top -->
         <div class="d-grid gap-3 col-2 mx-auto my-5">
-            <button class="btn btn-lg text-nowrap" type="button" style="background-color: #FFFFFF; border-color: #ED6565; color: #ED6565" onclick="location.href='index.php'">Top</button>
+            <button class="btn btn-lg rounded-pill" type="button" style="background-color: #FFFFFF; border-color: #ED6565; color: #ED6565" onclick="location.href='index.php'">Top</button>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
