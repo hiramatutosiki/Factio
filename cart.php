@@ -92,7 +92,6 @@ if (isset($_SESSION['user_id'])) {
                      </div>
 
                      <div class="col-md-2 col-10">
-                     <form action="cart_delete.php" method="post">
                         <input type="hidden" name="delete" value="' . $row["cart_id"] . '">
                         <button type="submit" formaction="cart_delete.php" style="border: none; background-color: #FFFFFF">
                             <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
