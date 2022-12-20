@@ -18,7 +18,7 @@
             align-items: center;
             padding-top: 40px;
             padding-bottom: 40px;
-            padding-top: 150px;
+            padding-top: 10px;
         }
 
         .form-signin {
@@ -47,41 +47,53 @@
             text-align : center;
         }
         .btn{
-            width: 40%;
-            height: 70%;
+            width: 30%;
+            height: 60%;
         }
         .ppp{
             text-align: center;
         }
+	.text-center{
+		padding-top: 20px;
+	}
     </style>
 </head>
 <body>
+<?php
+   require_once('header_login.php');
+ ?>
     <div class="text-center">
       <h2>新規会員登録</h2>
       </div>
       <div class="container">
   <main>
-    <div class="row">
+    <div class="row gx-3 ">
       <div class="col-12 offset-md-3 col-md-6"><!--col-md-7 col-lg-8-->
         <form action="login_confirm.php" method="post" name="myForm" class="validationForm" novalidate>
-          <!--<div class="row g-3">-->
-            <div class="col-12">
+         <div class="row mb-3">
+            <div class="col-12　pb-3">
               <label for="username" class="form-label">氏名</label>
               <input type="text" class="form-control" id="username" name="name">
             </div>
+	  </div>
+	<div class="row mb-3">
             <div class="col-12">
               <label for="email" class="form-label">メールアドレス</label>
               <input type="text" class="form-control required email" id="email" autocomplete="new-password" size="30" name="mail">
-
-            </div>
+	     </div>
+          </div>
+	<div class="row mb-3">
             <div class="col-12">
               <label for="pass" class="form-label">パスワード</label>
               <div class="input-group has-validation">
-                <input type="text" class="form-control" id="pass" placeholder="" required="" name="pass">
+                <input type="password" class="form-control" id="pass" placeholder="" required="" name="pass">
               </div>
-            </div>
+	 </div>
+      </div>
+        <div class="row mb-2">
             <label for="post" class="form-label">住所</label>
-            <div class="row">
+	</div>
+           <div class="row mb-3">
             <div class="col-6">
               <label for="post" class="form-label">郵便番号</label>
               <div class="input-group has-validation">
@@ -95,16 +107,19 @@
               </div>
             </div>
             </div>
-            <div class="row">
+            <div class="row mb-2">
                 <div class="col-12">
                 <label for="address" class="form-label">市区町村・番地・建物名・号室</label>
                 <input type="text" class="form-control" id="address" placeholder="" required="" name="city">
                 </div>
+	     </div>
+	     <div class="row mb-4">
                 <div class="col-12 ppp">
                     <button class="btn btn-danger btn-lg" onclick="location.href='login_confirm.php'" style="margin-top: 40px;" type="submit">入力確認</button>
                 </div>
-                <div class="col-12 ppp">
-                    <a class="btn btn-outline-danger btn-lg rounded" onclick="location.href='index.php'" style="margin-top: 40px;" >Top</a>
+	      </div>
+                <div class="col-13 ppp">
+                    <button class="btn btn-lg rounded-pill" type="button" style="background-color: #FFFFFF; border-color: #ED6565; color: #ED6565" onclick="location.href='index.php'">Top</button>
                 </div>
             </div>
           </form>

@@ -143,7 +143,7 @@ class DBManager
 	}
 
 	// 年齢
-	public function edeitCart($age, $id)
+	public function addCartAge($age, $id)
 	{
 		$pdo = $this->dbConnect();
 		$sql = "UPDATE cart SET main_age = ? WHERE user_id = ? AND buy_date IS NULL";
@@ -183,4 +183,25 @@ class DBManager
 
 		$ps->execute();
 	}
+	// カテゴリ：誕生日の商品がカートにあるかチェック
+    public function cartCheckBirthdayItem($array)
+    {
+        $exist = false;
+        foreach ($array as $row) {
+            if ($row['category_name'] == "誕生日") {
+                $exist = true;
+                return $exist;
+            }
+        }
+    }
+	
+	//カート内アイテム個数変更
+	  public function editCartItemNum($num, $id){
+        $pdo = $this->dbConnect();
+        $sql = "UPDATE cart SET item_num = ? WHERE cart_id = ?";
+        $ps = $pdo->prepare($sql);
+        $ps->bindValue(1, $num, PDO::PARAM_STR);
+        $ps->bindValue(2, $id, PDO::PARAM_STR);
+        $ps->execute();
+       }
 }

@@ -1,11 +1,7 @@
 <?php
 session_start();
-if (isset($_SESSION['user_id'])) {
-    // テスト用
-    echo 'ようこそ' . $_SESSION['user_name'] . 'さん<br>';
-}
-?>
 
+?>
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -19,10 +15,15 @@ if (isset($_SESSION['user_id'])) {
     <title>Factio</title>
     <style>
         .bg-img {
-            background-image: url(img/rei.jpg);
+            background-image: url(img/janbo.jpg);
             background-size: cover;
             background-position: center 60%;
+	    margin-top:2px;
+            padding:22%;
         }
+	.body{
+	margin-top:20px;
+	}	
     </style>
 </head>
 
@@ -31,12 +32,10 @@ if (isset($_SESSION['user_id'])) {
     require_once(__DIR__ . '/header.php');
     ?>
     <!-- ジャンボトロン -->
-    <div class="bg-img p-5">
-        <div class="container">
-            <img src="img/rei.jpg" class="img-fluid">
+	<div class="bg-img">
+	  <div class="container">
         </div>
-    </div>
-
+      </div>
     <div class="container-fluid w-75">
         <!-- 見出し：おすすめ -->
         <div class="row my-5">
