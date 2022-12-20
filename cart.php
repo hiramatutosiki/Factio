@@ -87,12 +87,14 @@ if (isset($_SESSION['user_id'])) {
 
                     echo ' <div class="col-md-2 col-10 offset-1">
                         <p style="display: inline-block; padding: 10px;">個数</p>
+
                        <input type="hidden" name="cart_id[]" value="' . $row["cart_id"] . '">
                         <input type="number" name="item_num[]" value="' . $row["item_num"] . '" style="display: inline-block; width: 3em">
+
+
                      </div>
 
                      <div class="col-md-2 col-10">
-                     <form action="cart_delete.php" method="post">
                         <input type="hidden" name="delete" value="' . $row["cart_id"] . '">
                         <button type="submit" formaction="cart_delete.php" style="border: none; background-color: #FFFFFF">
                             <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
@@ -100,14 +102,30 @@ if (isset($_SESSION['user_id'])) {
                             <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z" />
                             </svg>
                         </button>
+
                      </form>
                      </div>';
+
                 }
                 if ($sum == 0) {
                     echo "カート内にアイテムが存在しません";
                     exit;
                 }
                 ?>
+
+
+            </div>
+
+            <!-- 年齢 -->
+            <div class="row my-3">
+                <div class="col-8 offset-2 text-end">
+                    <p style="font-size: 1.3em">お祝いする方の年齢をご入力ください</p>
+                    <p>※年齢の数字のバルーンをお送りいたします。</p>
+                    <p style="font-size: 1.3em">
+                        <input type="number" name="age" value="10" style="display: inline-block; width: 3em; margin-right: 5px">歳
+                    </p>
+                </div>
+
             </div>
 
             <!-- 年齢 -->
@@ -131,6 +149,7 @@ if (isset($_SESSION['user_id'])) {
 
            <!-- ボタン：お支払いへ -->
             <div class="d-grid gap-3 d-md-flex col-md-4 offset-md-6 justify-content-md-end">
+
                 <button class="btn btn-lg rounded-pill" type="submit" style="background-color: #ED6565; color: #FFFFFF" onclick="location.href='cart_check.php'" id="inputButton">お支払いへ</button>
                 <script>
                     if(birthday){
@@ -138,12 +157,16 @@ if (isset($_SESSION['user_id'])) {
                             button.disabled = true;
                    	 }
                 </script>
+
+
     </form>
     </div>
 
     <!-- ボタン：Top -->
     <div class="d-grid gap-3 col-md-2 col-6 mx-auto my-5">
+
       <button class="btn btn-lg rounded-pill" type="button" style="background-color: #FFFFFF; border-color: #ED6565; color: #ED6565" onclick="location.href='index.php'">Top</button>
+
     </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>

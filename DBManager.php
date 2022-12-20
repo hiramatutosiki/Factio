@@ -4,7 +4,7 @@ class DBManager
 	// 接続メソッド
 	private function dbConnect()
 	{
-		$pdo = new PDO('mysql:host=mysql207.phy.lolipop.lan;dbname=LAA1418466-kaihatuensyu;charset=utf8','LAA1418466','oboeyasui');
+		$pdo = new PDO('mysql:host=mysql207.phy.lolipop.lan;dbname=LAA1418466-kaihatuensyu;charset=utf8', 'LAA1418466', 'oboeyasui');
 		return $pdo;
 	}
 
@@ -115,8 +115,23 @@ class DBManager
 		return $searchArray;
 	}
 
+	// カート内アイテム個数変更
+	public function editCartItemNum($num, $id)
+	{
+		$pdo = $this->dbConnect();
+		$sql = "UPDATE cart SET item_num = ? WHERE cart_id = ?";
+		$ps = $pdo->prepare($sql);
+		$ps->bindValue(1, $num, PDO::PARAM_STR);
+		$ps->bindValue(2, $id, PDO::PARAM_STR);
+		$ps->execute();
+
+		$searchArray = $ps->fetchAll();
+		return $searchArray;
+	}
+
 	// カート内アイテム削除
-	public function deleteCartItem($id){
+	public function deleteCartItem($id)
+	{
 		$pdo = $this->dbConnect();
 		$sql = "DELETE FROM cart WHERE cart_id=?;";
 		$ps = $pdo->prepare($sql);
