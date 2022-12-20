@@ -21,13 +21,6 @@ session_start();
     require_once('header_login.php');
     ?>
 
-    <!-- リンク：Factio -->
-    <div class="row my-3 text-left">
-            <div class="col-6 offset-1">
-                <a class="navbar-brand ms-5" href="index.php" style="font-size: 1.5em">Factio</a>
-            </div>
-        </div>
-
     <div class="container-fluid">
         <!-- 見出し：ログイン -->
         <div class="row my-5">
@@ -41,8 +34,8 @@ session_start();
             <!-- フォーム：メールアドレス -->
             <div class="row my-3">
                 <div class="col-6 offset-3">
-                    <label for="txt1" class="form-label">メールアドレス</label>
-                    <input type="text" class="form-control" id="txt1" placeholder="name@example.com" name="mail">
+                    <label for="input_mail" class="form-label">メールアドレス</label>
+                    <input type="text" class="form-control" name="user_mail" placeholder="name@example.com">
                 </div>
             </div>
 
@@ -50,7 +43,7 @@ session_start();
             <div class="row my-3">
                 <div class="col-6 offset-3">
                     <label for="input_password" class="form-label">パスワード</label>
-                    <input type="password" class="form-control" name="user_pass">
+                    <input type="password" class="form-control" name="user_password">
                 </div>
             </div>
 

@@ -28,7 +28,7 @@ if (isset($_SESSION['user_id'])) {
 
     <div class="container-fluid">
         <!-- 見出し：お支払い -->
-        <div class="row my-5">ｚ
+        <div class="row my-5">
             <div class="col-6 offset-1">
                 <h1 class="text-left">お支払い</h1>
             </div>
@@ -38,7 +38,12 @@ if (isset($_SESSION['user_id'])) {
         <?php
         require 'DBManager.php';
         $dbmng = new DBManager();
-        $dbmng->edeitCart($_POST['age'], $_SESSION['user_id']);
+        for($i=0; $i<count($_POST['cart_id']); $i++){
+            $dbmng->editCartItemNum($_POST['item_num'][$i], $_POST['cart_id'][$i]);
+        }
+         if(!empty($_POST['age'])){
+            $dbmng->addCartAge($_POST['age'], $_SESSION['user_id']);
+        }
         $searchArray = $dbmng->getUser($_SESSION['user_id']);
 
         foreach ($searchArray as $row) {
