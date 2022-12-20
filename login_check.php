@@ -15,7 +15,5 @@ foreach ($userData as $row) {
     header('Location:index.php');
 }
 if (count($userData) == 0) {
-    echo $_POST['user_mail'];
-    echo $_POST['user_password'];
-    header('Location:login.php');
+    header('Location:mailerror.php');
 }
