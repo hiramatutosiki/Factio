@@ -17,6 +17,30 @@ if (isset($_SESSION['user_id'])) {
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 
     <title>Factio</title>
+	<script>
+
+        function inputCheck() {
+        var inputValue = document.getElementById("inputForm").value;
+        var button = document.getElementById("inputButton");
+
+
+        if (String(inputValue).match(/^\d+$/)) {
+            if (inputValue < 0 || 150 < inputValue) {
+                document.getElementById("check").innerHTML = '0~150の間で年齢を入力してください';
+                button.disabled = true;
+            }else{
+                button.disabled = false;
+            }
+        } else {
+            document.getElementById("check").innerHTML = '半角数字のみを入力してください';
+            button.disabled = true;
+        }       
+        if(inputValue == ''){
+            document.getElementById("check").innerHTML = '';
+        }
+    }
+
+    </script>
 </head>
 
 <body>
@@ -39,81 +63,36 @@ if (isset($_SESSION['user_id'])) {
                 </div>
             </div>
 
-        <!-- 本文 -->
-        <?php
-        require 'DBManager.php';
-        $dbmng = new DBManager();
-        ?>
-
-        <div class="row my-3">
+            <!-- 本文 -->
             <?php
-            $searchArray = $dbmng->getCart($_SESSION['user_id']);
-            $i = 0;
-            $sum = 0;
-            foreach ($searchArray as $row) {
+            require 'DBManager.php';
+            $dbmng = new DBManager();
+            ?>
 
-                echo '<div class="col-md-2 col-10 offset-md-1 offset-1">
-                        <img src="img' . $row["item_mainimage"] . '" class="img-fluid img-thumbnail" alt="sample">
+            <div class="row my-3">
+                <?php
+                $searchArray = $dbmng->getCart($_SESSION['user_id']);
+                $i = 0;
+                $sum = 0;
+                foreach ($searchArray as $row) {
+                    echo '<div class="col-md-2 col-10 offset-md-1 offset-1">
+                        <img src="img' . $row["item_mainimage"] . '" class="img-fluid img-thumbnail" alt="main">
                     </div>
                     <div class="col-md-3 col-10 offset-1">
                         <h2 style="padding-bottom: 10px">' . $row["item_name"] . '</h2>
                         <p class="text-end">' . $row["item_price"] . '円</p>
                     </div>';
 
-                $sum = $sum + ($row["item_price"] * $row["item_num"]);
+                    $sum = $sum + ($row["item_price"] * $row["item_num"]);
 
-                echo ' <div class="col-md-2 col-10 offset-1">
+                    echo ' <div class="col-md-2 col-10 offset-1">
                         <p style="display: inline-block; padding: 10px;">個数</p>
-                        <input type="number" name="num" value="' . $row["item_num"] . '" style="display: inline-block; width: 3em">
+                       <input type="hidden" name="cart_id[]" value="' . $row["cart_id"] . '">
+                        <input type="number" name="item_num[]" value="' . $row["item_num"] . '" style="display: inline-block; width: 3em">
                      </div>
 
                      <div class="col-md-2 col-10">
                      <form action="cart_delete.php" method="post">
-                        <input type="hidden" name="delete" value="' . $row["cart_id"] . '">
-                        <button type="submit value="" style="border: none; background-color: #FFFFFF">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
-                            <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />
-                            <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z" />
-                            </svg>
-                        </button>
-                        </form>
-                    </div>';
-            }
-            if ($sum == 0) {
-                echo "カート内にアイテムが存在しません";
-                exit;
-            }
-            ?>
-        </div>
-
-        <!-- 年齢 -->
-        <form action="cart_check.php" method="post">
-            <div class="row my-3">
-                <div class="col-8 offset-2 text-end">
-                    <p style="font-size: 1.3em">お祝いする方の年齢をご入力ください</p>
-                    <p>※年齢の数字のバルーンをお送りいたします。</p>
-                    <p style="font-size: 1.3em">
-                        <input type="number" name="age" value="10" style="display: inline-block; width: 3em; margin-right: 5px">歳
-                    </p>
-                </div>
-            </div>
-
-            <!-- 合計 -->
-            <?php
-            echo '<div class="row my-3">
-                   <div class="col-3 offset-9">
-                    <p>合計' . $sum . '円</p>
-                   </div>
-                  </div>';
-            ?>
-
-            <!-- ボタン：お支払いへ -->
-            <div class="d-grid gap-3 d-md-flex col-md-4 offset-md-6 justify-content-md-end">
-                <button class="btn btn-lg rounded-pill" type="submit" style="background-color: #ED6565; color: #FFFFFF" onclick="location.href='cart_check.php'">お支払いへ</button>
-            </div>
-        </form>
-
-                     <div class="col-md-2 col-10">
                         <input type="hidden" name="delete" value="' . $row["cart_id"] . '">
                         <button type="submit" formaction="cart_delete.php" style="border: none; background-color: #FFFFFF">
                             <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
@@ -121,7 +100,8 @@ if (isset($_SESSION['user_id'])) {
                             <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z" />
                             </svg>
                         </button>
-                    </div>';
+                     </form>
+                     </div>';
                 }
                 if ($sum == 0) {
                     echo "カート内にアイテムが存在しません";
@@ -137,32 +117,33 @@ if (isset($_SESSION['user_id'])) {
                         <div class="col-8 offset-2 text-end">
                             <p style="font-size: 1.3em">お祝いする方の年齢をご入力ください</p>
                             <p>※年齢の数字のバルーンをお送りいたします。</p>
+				<script>
+      					 var birthday = true;
+                       		 </script>
                             <p style="font-size: 1.3em">
-                                <input type="number" name="age" value="10" style="display: inline-block; width: 3em; margin-right: 5px">歳
+                               <input type="number" name="age" value="" placeholder="12" id="inputForm" onkeyup="inputCheck()" style="display: inline-block; width: 3em; margin-right: 5px">歳
                             </p>
+				<p id="check" style="color:red"></p>
                         </div>
                     </div>';
             }
             ?>
 
-            <!-- 合計 -->
-            <?php
-            echo '<div class="row my-3">
-                   <div class="col-3 offset-9">
-                    <p>合計' . $sum . '円</p>
-                   </div>
-                  </div>';
-            ?>
-
-            <!-- ボタン：お支払いへ -->
+           <!-- ボタン：お支払いへ -->
             <div class="d-grid gap-3 d-md-flex col-md-4 offset-md-6 justify-content-md-end">
-                <button class="btn btn-lg rounded-pill" type="submit" style="background-color: #ED6565; color: #FFFFFF" onclick="location.href='cart_check.php'">お支払いへ</button>
+                <button class="btn btn-lg rounded-pill" type="submit" style="background-color: #ED6565; color: #FFFFFF" onclick="location.href='cart_check.php'" id="inputButton">お支払いへ</button>
+                <script>
+                    if(birthday){
+                            var button = document.getElementById("inputButton");
+                            button.disabled = true;
+                   	 }
+                </script>
     </form>
     </div>
 
     <!-- ボタン：Top -->
     <div class="d-grid gap-3 col-md-2 col-6 mx-auto my-5">
-        <button class="btn btn-lg rounded-pill" type="button" style="background-color: #FFFFFF; border-color: #ED6565; color: #ED6565" onclick="location.href='index.php'">Top</button>
+      <button class="btn btn-lg rounded-pill" type="button" style="background-color: #FFFFFF; border-color: #ED6565; color: #ED6565" onclick="location.href='index.php'">Top</button>
     </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>

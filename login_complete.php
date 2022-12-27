@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -17,7 +19,7 @@
             align-items: center;
             padding-top: 40px;
             padding-bottom: 40px;
-            padding-top: 150px;
+            padding-top: 10px;
         }
 
         .form-signin {
@@ -56,8 +58,9 @@
           box-sizing: border-box;
         }
         .btn{
-            width: 40%;
-            height: 70%;
+            width: 30%;
+          
+	   
         }
         .ppp{
             text-align: right;
@@ -67,12 +70,18 @@
             height: 35px;
         }
         .pp{
-            text-align: center;
+            text-align: center; 
         }
+	.text-center{
+		padding-top:20px;
+	}
     </style>
 </head>
 <body>
-    <div class="text-center">
+    <?php
+    require_once('header_login.php');
+    ?>
+    <div class="text-center mt-10">
       <h2>新規会員登録</h2>
       <h3 style="margin-top: 50px;">アカウント登録完了しました</h3>
     </div>
@@ -88,10 +97,9 @@
       $res =$dbnm->newUser($mail,$pass,$name,$post,$pro,$city);
       ?>
       <div class="container">
-        <div class="row">
-            <div class="col-12 pp">
-                <a class="btn btn-outline-danger btn-lg pp" style="margin-top: 40px;" onclick="location.href='index.php'" >Top</a>
-            </div>
+       
+             <div class="col-12 pp">
+           <button class="btn btn-lg rounded-pill" type="button" style="background-color: #FFFFFF; border-color: #ED6565; color: #ED6565" onclick="location.href='index.php'">Top</button>
         </div>
     </div>
   </main>

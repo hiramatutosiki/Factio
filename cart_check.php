@@ -28,7 +28,7 @@ if (isset($_SESSION['user_id'])) {
 
     <div class="container-fluid">
         <!-- 見出し：お支払い -->
-        <div class="row my-5">ｚ
+        <div class="row my-5">
             <div class="col-6 offset-1">
                 <h1 class="text-left">お支払い</h1>
             </div>
@@ -38,7 +38,12 @@ if (isset($_SESSION['user_id'])) {
         <?php
         require 'DBManager.php';
         $dbmng = new DBManager();
-        $dbmng->edeitCart($_POST['age'], $_SESSION['user_id']);
+        for($i=0; $i<count($_POST['cart_id']); $i++){
+            $dbmng->editCartItemNum($_POST['item_num'][$i], $_POST['cart_id'][$i]);
+        }
+         if(!empty($_POST['age'])){
+            $dbmng->addCartAge($_POST['age'], $_SESSION['user_id']);
+        }
         $searchArray = $dbmng->getUser($_SESSION['user_id']);
 
         foreach ($searchArray as $row) {
@@ -105,12 +110,12 @@ if (isset($_SESSION['user_id'])) {
 
         <!-- ボタン：購入する -->
         <div class="d-grid gap-3 col-2 mx-auto my-5">
-            <button class="btn btn-lg" type="button" style="background-color: #FFFFFF; border-color: #ED6565; color: #ED6565" onclick="location.href='cart_finish.php'">購入する</button>
+           <button class="btn btn-lg rounded-pill" type="submit" style="background-color: #ED6565; color: #FFFFFF" onclick="location.href='cart_finish.php'">購入する</button>
         </div>
 
         <!-- ボタン：カートへもどる -->
         <div class="d-grid gap-3 col-2 mx-auto my-5">
-            <button class="btn btn-lg" type="button" style="background-color: #FFFFFF; border-color: #ED6565; color: #ED6565" onclick="location.href='cart.php'">カートへもどる</button>
+           <button class="btn btn-lg rounded-pill" type="button" style="background-color: #FFFFFF; border-color: #ED6565; color: #ED6565" onclick="location.href='cart.php'">カートへもどる</button>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
