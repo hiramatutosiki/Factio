@@ -1,3 +1,4 @@
+
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -46,12 +47,15 @@
             text-align : center;
         }
         .btn{
-            width: 40%;
-            height: 70%;
+            width: 30%;
+            height: 60%;
         }
         .ppp{
             text-align: center;
         }
+	.text-center{
+		padding-top: 20px;
+	}
     </style>
 </head>
 <body>
@@ -103,19 +107,19 @@
               </div>
             </div>
             </div>
-            <div class="row">
+            <div class="row mb-2">
                 <div class="col-12">
                 <label for="address" class="form-label">市区町村・番地・建物名・号室</label>
                 <input type="text" class="form-control" id="address" placeholder="" required="" name="city">
                 </div>
 	     </div>
-	     <div class="row">
+	     <div class="row mb-4">
                 <div class="col-12 ppp">
                     <button class="btn btn-danger btn-lg" onclick="location.href='login_confirm.php'" style="margin-top: 40px;" type="submit">入力確認</button>
                 </div>
 	      </div>
-                <div class="col-12 ppp">
-                    <a class="btn btn-outline-danger btn-lg rounded" onclick="location.href='index.php'" style="margin-top: 40px;" >Top</a>
+                <div class="col-13 ppp">
+                    <button class="btn btn-lg rounded-pill" type="button" style="background-color: #FFFFFF; border-color: #ED6565; color: #ED6565" onclick="location.href='index.php'">Top</button>
                 </div>
             </div>
           </form>
