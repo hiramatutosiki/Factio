@@ -86,7 +86,7 @@ if (isset($_SESSION['user_id'])) {
 
             echo '<div class="row my-3">
                     <div class="col-12 text-center">
-                        <p>' . $row["item_name"] . '　' . $row["item_price"] . '円×' . $row["item_num"] . '個</p>
+                        <p>' . $row["item_name"] . ' ' . $row["item_price"] . '円×' . $row["item_num"] . '個</p>
                     </div>
         </div>';
 
