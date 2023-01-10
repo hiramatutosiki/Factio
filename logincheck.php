@@ -1,3 +1,4 @@
+<!--ロリポップ同期済み-->
 <!DOCTYPE html>
 <head>
 <link rel="stylesheet" href="style.css">
@@ -7,23 +8,23 @@
 
 session_start();
 
-require_once(__DIR__ . '/DBManager.php');
+require_once(__DIR__ . '/DBManager_login.php');
 
 $dbmng = new DBManager();
 $userData = $dbmng->checkLoginByMailAndPass($_POST['user_mail'], $_POST['user_pass']);
 if (is_array($userData)) {
-	foreach ($userData as $row) {
-	$_SESSION['user_id'] = $row['user_id'];
-	$_SESSION['user_name'] = $row['user_name'];
-	$_SESSION['user_postcode'] = $row['user_postcode'];
-	$_SESSION['user_prefecture'] = $row['user_prefecture'];
-	$_SESSION['user_city'] = $row['user_city'];
-	header('Location:index.php');
-	}
+foreach ($userData as $row) {
+$_SESSION['user_id'] = $row['user_id'];
+$_SESSION['user_name'] = $row['user_name'];
+$_SESSION['user_postcode'] = $row['user_postcode'];
+$_SESSION['user_prefecture'] = $row['user_prefecture'];
+$_SESSION['user_city'] = $row['user_city'];
+header('Location:index.php');
+}
 } else {
 
     header('Location:mailerror.php');
-
+echo $userData;
 }
 
 ?>

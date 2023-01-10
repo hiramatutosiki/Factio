@@ -1,3 +1,4 @@
+<!--ロリポップ同期済み-->
 <!DOCTYPE html>
 <html>
 <head>

@@ -1,3 +1,4 @@
+<!--ロリポップ同期済み-->
 <?php
 
 session_start();
@@ -16,6 +17,4 @@ foreach ($userData as $row) {
 }
 if (count($userData) == 0) {
     header('Location:mailerror.php');
-
 }
-
