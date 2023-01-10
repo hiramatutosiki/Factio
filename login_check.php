@@ -16,4 +16,6 @@ foreach ($userData as $row) {
 }
 if (count($userData) == 0) {
     header('Location:mailerror.php');
+
 }
+
