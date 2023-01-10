@@ -4,7 +4,7 @@ class DBManager
 	// 接続メソッド
 	private function dbConnect()
 	{
-		$pdo = new PDO('mysql:host=mysql207.phy.lolipop.lan;dbname=LAA1418466-kaihatuensyu;charset=utf8','LAA1418466','oboeyasui');
+		$pdo = new PDO('mysql:host=localhost;dbname=factio;charset=utf8','webuser','abccsd2');
 		return $pdo;
 	}
 

@@ -112,7 +112,7 @@
         <?php
 	$isError =false;
         $mail =$_POST['mail'];
-        $mysql =new PDO('mysql:host=mysql207.phy.lolipop.lan;dbname=LAA1418466-kaihatuensyu;charset=utf8','LAA1418466','oboeyasui');
+        $mysql =new PDO('mysql:host=localhost;dbname=factio;charset=utf8','webuser','abccsd2');
         $sql = "SELECT * FROM user WHERE user_mail =?";
         $ps = $mysql->prepare($sql);
         $ps->bindValue(1,$_POST['mail'],PDO::PARAM_STR);
